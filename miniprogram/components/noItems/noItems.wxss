@@ -1,0 +1,25 @@
+/* components/noitems.wxss */
+.viewbg{
+  width: 100vw;
+  height: 100vh;
+  background: #fff
+}
+.flex {
+  display: flex;
+  display: -webkit-flex;
+}
+.flex_y{
+  flex-direction: column
+}
+.flex_center{
+  justify-content: center;
+  align-items: center
+}
+.noPic{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%
+}
+.btns{
+  margin-top: 30rpx
+}

@@ -1,0 +1,44 @@
+<!--miniprogram/pages/orderDetail/orderDetail.wxml-->
+<view class='cm_containerPD'>
+  <view class='cm_panel'>
+    <view class='cm_t_c'>
+      <image src="{{orderMsg.restaurant_image_hash}}" class='cm_avatar'></image>
+    </view>
+    <view>
+      <view class='cm_t_c'>订单已完成</view>
+      <view class='cm_t_c'>感谢你对饿了么的信任，期待再次光临</view>
+      <view class='cm_flex_c'>
+        <van-button plain type="primary" size="mini">申请售后</van-button>
+        <van-button plain type="danger" size="mini">评价</van-button>
+      </view>
+    </view>
+  </view>
+
+  <view class='cm_panel'>
+    <!-- <van-cell-group> -->
+    <van-cell title="安全理赔" value="" label="如食品发现异物、变质或引发就医，可在线申请理赔" arrow-direction="right" is-link border="{{ false }}" />
+    <!-- </van-cell-group> -->
+  </view>
+
+  <view class=''>
+    <!-- <van-cell-group> -->
+    <van-cell value="内容" icon="shop" is-link>
+      <view slot="title">
+        <span class="van-cell-text">时草烤肉沙拉饭(后巷路店)</span>
+        <van-tag type="danger">优惠</van-tag>
+      </view>
+    </van-cell>
+    <van-cell title="❤时草·手撕稻谷鸡胸肉饭（蔬菜沙拉）-茶饮" value="" label="茶饮" arrow-direction="right" is-link />
+    <van-cell title="餐盒费" value="￥2.0" />
+    <van-cell title="配送费" value="￥2.0" />
+    <van-cell title="活动优惠" value="-￥2.0" />
+    <van-cell title="红包" value="-￥2.0" />
+    <!-- </van-cell-group> -->
+    <van-cell value="实付：￥22.8"   value-class="cm_h3">
+      <view slot="title">
+        <van-icon name="phone " class='cm_a'/>
+        <text class="van-cell-text cm_a">联系商家</text>    
+      </view>
+    </van-cell>
+  </view>
+</view>

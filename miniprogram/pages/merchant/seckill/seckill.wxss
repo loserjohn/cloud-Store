@@ -1,0 +1,20 @@
+/* miniprogram/pages/merchant/seckill/seckill.wxss */
+.page{
+  padding: 20rpx;
+  padding-bottom: 100rpx
+}
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 50
+}
+.boxs{
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box
+}

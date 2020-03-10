@@ -1,0 +1,16 @@
+{
+  "navigationBarBackgroundColor": "#0079f3",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "详情",
+  "backgroundColor": "#f1f1f1",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false,
+  
+  "usingComponents": {
+    "FoodsMenus": "../components/shopFood/shopFood",
+   "shopComment": "../components/shopComment/shopComment",
+   "shopMerchant": "../components/shopMerchant/shopMerchant",
+    "shopCar": "../components/cars/cars",
+    "FoodNum": "../components/num/num"
+  }
+}

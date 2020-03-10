@@ -1,0 +1,34 @@
+/* pages/components/shop_comment/shop_comment.wxss */
+@import '../../../../app.wxss';
+.cm_prize{
+  font-size: 60rpx;
+  margin: 0 30rpx
+}
+.box{
+  box-sizing: border-box;
+  padding:0 40rpx
+}
+.block1{
+  padding: 40rpx;
+}
+.fs18{
+  font-size: 36rpx;
+  color: #999
+}
+.starsBox{
+  height: 60rpx;
+  overflow: hidden;
+  /* background: red; */
+  /* width:80rpx; */
+
+}
+.block3{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx
+}
+.commentItem{
+  margin-bottom: 30rpx
+}
+.foodPre{
+  margin-right:20rpx
+}

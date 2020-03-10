@@ -1,0 +1,61 @@
+<!--miniprogram/pages/merchant/classManage/classManage.wxml-->
+<view class="page">
+  <!-- <van-sticky> -->
+  <!-- <view class="flex flex_center newBox">
+      <view class="f1">
+        <van-field label="分类名称" value="{{ newName }}" placeholder="请输入分类名称" bind:change="onChange" input-align="right" />
+        <van-cell title="分类键值" border="{{ false }}" value="{{ currentValue }}">
+        </van-cell>
+      </view>
+      <view class="btn" bindtap="_addNewClass">
+        <van-icon slot="right-icon" name="add" class="custom-icon" color="#ff1e1e" size="90rpx" />
+        <view class="cm_des">新增分类</view>
+      </view>
+    </view> -->
+  <!-- <van-button block square type="danger" data-oid="{{order._id}}" bindtap="_toRefund">添加新的分类</van-button> -->
+  <!-- </van-sticky> -->
+
+  <van-cell-group>
+    <block wx:for="{{classList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <van-cell title="{{item.name}}" label="分类键值：{{item.value}}">
+        <van-icon slot="right-icon" name="clear" class="custom-icon" color="#ff1e1e" data-val="{{item.value}}" size="36rpx" bindtap="_delect" />
+      </van-cell>
+    </block>
+  </van-cell-group>
+
+
+
+  <van-overlay show="{{ show }}" >
+    <view class="wrapper">
+      <view class="title cm_t_c">分类库</view>
+      <scroll-view scroll-y="true" class="slider" >
+        <van-checkbox-group value="{{ result }}" bind:change="onChangeCheck">
+          <van-cell-group>
+            <van-cell  wx:for="{{ list }}" wx:key="index"  title="{{ item.name+item.value }}" value-class="value-class" clickable data-index="{{ item.value }}">
+              <van-checkbox slot="right-icon" disabled="{{item.checked}}"  shape="square" class="checkboxes-{{item.value}}" name="{{ item.value }}" />
+            </van-cell>
+          </van-cell-group>
+        </van-checkbox-group>
+      </scroll-view>
+      <view style="margin-top:10rpx">
+        <van-button block square type="danger" bindtap="_sureClass">确认选择</van-button>
+      </view>
+      <view style="margin-top:10rpx">
+        <van-button block square type="danger" plain bindtap="_toggleClass">取消</van-button>
+      </view>
+
+    </view>
+  </van-overlay>
+
+  <view class="footer ">
+    <van-button block square type="danger" bindtap="_toggleClass">添加分类</van-button>
+  </view>
+
+  <!-- <van-submit-bar button-text="" bind:submit="_addNewClass" tip="{{ true }}">
+    <view class="flex flex_center" style="width:50%;text-align:center">
+      <view class="f1">已选:20个分类</view>
+    </view>
+  </van-submit-bar> -->
+  <van-notify id="van-notify" />
+  <van-dialog id="van-dialog" />
+</view>

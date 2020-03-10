@@ -1,0 +1,47 @@
+<!--miniprogram/pages/bookDetail/bookDetail.wxml-->
+<van-notice-bar left-icon="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541075068306&di=fef76e4897f2a5f891a04f1a4ebe2f9b&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F20171_20_15%2Fa49a9831182409820405.jpeg" text="足协杯战线连续第2年上演广州德比战，上赛季半决赛上恒大以两回合5-3的总比分淘汰富力。"
+/>
+<van-card tag="{{bookMsg.binding}}" price="{{bookMsg.price}}" desc="{{bookMsg.subtitle}}" title="{{bookMsg.title}}" thumb="{{ bookMsg.image}}">
+  <view slot="tags">
+    <!-- <view > -->
+      <van-tag  wx:for="{{bookMsg.tags}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2" type="primary" wx:show="idx2<6" custom-class="cm_mark_inline">{{item2.name}}</van-tag>
+    <!-- </view> -->
+  </view>
+</van-card>
+
+<van-panel title="{{'作者:'+bookMsg.author}}" desc="{{bookMsg.author_intro}}" >
+
+  <view class='van-hairline--top cm_content'>{{bookMsg.catalog}}</view>
+  <view slot="footer">
+    <van-button size="small">按钮</van-button>
+    <van-button size="small" type="danger">按钮</van-button>
+  </view>
+</van-panel>
+
+<van-dialog
+  use-slot
+  async-close
+  show="{{ show }}"
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onClose"
+  bind:getuserinfo="getUserInfo"
+>
+<van-field
+  value="{{ username }}"
+  label="用户名"
+  placeholder="请输入用户名"
+/>
+<van-field
+  value="{{ password }}"
+  type="password"
+  label="密码"
+  :border="false"
+  placeholder="请输入密码"
+/>
+</van-dialog>
+<van-row custom-class="cm_t_c van-hairline--bottom">
+  <van-col span="24">
+    <van-button type="primary" custom-class="cm_block_btn" :loading="true">加入收藏</van-button>
+  </van-col>
+</van-row>

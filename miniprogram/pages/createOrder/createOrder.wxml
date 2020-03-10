@@ -1,0 +1,67 @@
+<!--miniprogram/pages/createOrder/createOrder.wxml-->
+<view class="page">
+  <van-cell title="到店自取" data-name="1" clickable="{{false}}">
+    <van-switch checked="{{ selfReseive }}" size="24px" slot="right-icon" bind:change="reseiveSwitch" />
+  </van-cell>
+  <view class="flex flex_center addressBox" bindtap="chooseAddress" wx:if="{{!selfReseive}}">
+    <view class="f1">
+      <view>{{address.userName?address.userName:'请选择收货地址'}}</view>
+      <view class="cm_des">{{address.telNumber?address.telNumber:''}}</view>
+      <view class="cm_des">{{address.detailInfo?(address.provinceName + address.cityName + address.countyName + address.detailInfo):''}}  </view>
+    </view>
+    <view style="margin-left:60rpx">
+      <van-icon color="#666" name="arrow" />
+    </view>
+  </view>
+  <view wx:else style="margin-bottom:20rpx">
+    <van-cell title="提货联系人" is-link />
+    <van-cell title="提货地址" is-link value="内容" />
+    <van-cell title="提货时间" is-link value="内容" />
+  </view>
+
+  <block wx:for="{{allOrderList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class="panelbox">
+      <view class="flex storeBox flex_center van-hairline--bottom">
+        <image src="{{item.store_logo}}" style="width:40rpx;height:40rpx;border-radius:50%;margin-right:20rpx"></image>
+        <!-- <van-icon color="#666" name="shop-o" /> -->
+        <text>{{item.store_name}}</text>
+        <view class="f1"></view>
+      </view>
+      <block wx:for="{{item.goods}}" wx:for-index="idx" wx:for-item="it" wx:key="ind">
+        <view class="flex flex_center itemBox">
+          <image src="{{it.pro_pre}}" class='pro_pic' mode='aspectFill'></image>
+          <view class="f1 flex flex_y">
+            <text> {{it.pro_name}}</text>
+            <view class='prizeBox'>
+              <text class='lastPrize'> {{it.pro_prize.value }}</text>{{it.pro_prize.unit}}
+              <!-- ￥150 -->
+            </view>
+            <view class="f1"></view>
+          </view>
+          <!-- <van-icon color=" #666 " name="arrow " /> -->
+          <view class="flex flex_center">
+            <van-icon name="cross" />
+            <text>{{it.count}}</text>
+          </view>
+        </view>
+      </block>
+      <view class=" flex flex_center van-hairline--top" style="padding:16rpx 0">
+        <view class="">邮费</view>
+        <view class="f1"></view>
+        <view class="">{{item.all_ems}}</view>
+      </view>
+    </view>
+  </block>
+  <view style="margin-bottom:20rpx ">
+    <!-- <van-cell-group> -->
+    <van-cell title="商品金额 " value="{{totalSum}}" size="small" border="{{ false }} " />
+    <van-cell title="运费 " value="{{totalEms}} " border="{{ false }} " size="small" />
+    <!-- </van-cell-group> -->
+  </view>
+
+  <van-cell-group>
+    <van-field value="{{ message }} " label="卖家备注 " type="textarea " placeholder="请输入留言备注信息 " autosize border="{{ false }} " />
+  </van-cell-group>
+
+  <van-submit-bar price="{{ totalAmount }}" loading="{{loading}}" button-text="提交订单" bind:submit="onSubmit" />
+</view>

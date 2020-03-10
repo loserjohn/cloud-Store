@@ -1,0 +1,7 @@
+<!--miniprogram/pages/success.wxml-->
+<view class="page flex flex_y flex_center">
+
+    <image src="../../static/images/success.jpg" class="sicon"></image> 
+    <view style="margin-top:40rpx ;margin-bottom:40rpx">支付成功！</view>
+    <van-button round type="danger" size="small" bindtap="_back">你看着办</van-button>
+</view>

@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+      "FoodNum":"../num/num",
+      "van-transition": "../../vant/transition/index",
+      "van-icon": "../../vant/icon/index"
+  }
+  
+}

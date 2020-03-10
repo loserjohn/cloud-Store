@@ -1,0 +1,138 @@
+/* pages/cars/cars.wxss */
+@import '../../../../app.wxss';
+
+.shopCarBox {
+  width: 100%;
+  height: 100%;
+  background: rgba(61, 61, 63, 0.8);
+  position: relative;
+  color: #fff;
+  z-index: 15;
+}
+
+.carIcon {
+  width: 160rpx;
+  /* background: red; */
+  position: relative;
+}
+
+.iconCir {
+  border-radius: 50%;
+  position: absolute;
+  top: -10rpx;
+  background: rgb(42, 42, 42);
+  width: 100rpx;
+  height: 100rpx;
+  left: 50%;
+  margin-left: -50rpx;
+  line-height: 88rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border: 8rpx solid rgb(55, 55, 55);
+  padding: 0;
+  z-index: 100;
+}
+
+.carNum {
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+}
+
+.carBotton {
+  background: rgb(74, 74, 74);
+  width: 200rpx;
+  height: 120rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+
+.p1 {
+  color: rgb(179, 178, 178);
+  font-size: 32rpx;
+  line-height: 2;
+}
+
+.p2 {
+  color: #818080;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.cardList {
+  position: absolute;
+  bottom: 120rpx;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+}
+
+.orderMenu {
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+
+.orderBtn {
+  line-height: 80rpx;
+  background: #eee;
+}
+
+.orderItem {
+  line-height: 80rpx;
+}
+
+.notice {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: 100%;
+  line-height: 40rpx;
+  z-index: -1;
+  background: rgb(245, 242, 215);
+  color: rgb(224, 83, 1);
+}
+
+.noticeBar {
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+}
+
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(43, 42, 42, 0.651);
+  z-index: 10;
+}
+
+.active {
+  background: #0079f3;
+}
+
+.orderItemTitle {
+  width: 60%;
+  /* background: red */
+}
+
+.cm_prize {
+  box-sizing: border-box;
+  padding-right: 30rpx;
+}
+
+.current {
+  font-weight: 600;
+  color: #fff;
+}
+
+.enabledBuy {
+   width: 200rpx;
+  height: 120rpx;
+  text-align: center;
+  line-height: 120rpx;
+  background: rgb(16, 228, 80);
+  color: #fff;
+}

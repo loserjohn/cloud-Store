@@ -1,0 +1,13 @@
+<!--pages/components/num/num.wxml-->
+<view class='flex numBox cm_t_r '>
+  <view class='numBtn '  catchtap='_subNum'>
+    -
+  </view>
+
+  <view class='f1 count' >
+    {{num}}
+  </view>
+  <view class='numBtn add' catchtap='_addNum'>
+    +
+  </view>
+</view>

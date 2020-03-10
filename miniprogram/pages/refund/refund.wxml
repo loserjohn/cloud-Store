@@ -1,0 +1,104 @@
+<!--miniprogram/pages/refund/refund.wxml-->
+<wxs src="../../filter/time.wxs" module="format" />
+<view class="page">
+  <van-skeleton row="8" title loading="{{loading}}">
+    <view class="statusBox">{{ order.order_status.text }}</view>
+    <van-cell-group>
+      <van-cell title="退货理由" value="{{reasonText}}" bindtap="_chooseRs" is-link border="{{ false }}" />
+      <van-radio-group value="{{ refundParam.refundType }}" bind:change="_swichType" class="cells flex flex_center">
+        <text>退货方式</text>
+        <view class="f1"></view>
+        <van-radio class="f1" name="1" data-name="1" >仅退款</van-radio>
+        <van-radio class="f1" name="0" data-name="0" >退货退款</van-radio>
+      </van-radio-group>
+    </van-cell-group>
+    <view class="panelbox">
+      <view class="flex storeBox flex_center van-hairline--bottom">
+        <image src="{{order.store_logo}}" style="width:40rpx;height:40rpx;border-radius:50%;margin-right:20rpx"></image>
+        <!-- <van-icon color="#666" name="shop-o" /> -->
+        <text>{{order.store_name}}</text>
+        <view class="f1"></view>
+      </view>
+      <block wx:for="{{order.goods}}" wx:for-index="idx" wx:for-item="it" wx:key="ind">
+        <view class="flex flex_center itemBox">
+          <image src="{{it.pro_pre}}" class='pro_pic' mode='aspectFill'></image>
+          <view class="f1 flex flex_y">
+            <text> {{it.pro_name}}</text>
+            <view class='prizeBox'>
+              <text class='lastPrize'> {{it.pro_prize.value }}</text>{{it.pro_prize.unit}}
+              <!-- ￥150 -->
+            </view>
+            <view class="f1"></view>
+          </view>
+          <!-- <van-icon color=" #666 " name="arrow " /> -->
+          <view class="flex flex_center">
+            <van-icon name="cross" />
+            <text>{{it.count}}</text>
+          </view>
+        </view>
+      </block>
+      <view class=" flex flex_center van-hairline--top" style="padding:16rpx 0">
+        <view class="">商品金额</view>
+        <view class="f1"></view>
+        <view class="">{{order.all_sum}}</view>
+      </view>
+      <view class=" flex flex_center van-hairline--top" style="padding:16rpx 0">
+        <view class="">邮费</view>
+        <view class="f1"></view>
+        <view class="">{{order.all_ems}}</view>
+      </view>
+      <view class=" flex flex_center van-hairline--top" style="padding:16rpx 0">
+        <view class="">总金额</view>
+        <view class="f1"></view>
+        <view class="lastPrize">{{order.all_totalAmount}}</view>
+      </view>
+    </view>
+  </van-skeleton>
+  <!-- <van-skeleton row="6" title loading="{{loading}}">
+    <view style="margin-bottom:20rpx">
+      <view style="margin-bottom:20rpx">
+        <van-radio-group value="{{ refundParam.refundType }}" bind:change="onChange">
+          <van-cell-group>
+            <van-cell title="仅退货" clickable data-name="1" bind:click="_swichType">
+              <van-radio slot="right-icon" name="1" />
+            </van-cell>
+            <van-cell title="退货退款" clickable data-name="0" bind:click="_swichType">
+              <van-radio slot="right-icon" name="0" />
+            </van-cell>        
+          </van-cell-group>
+        </van-radio-group>     
+      </view> -->
+      <!-- <van-cell-group wx:if="{{refundParam.refundType==0}}"> -->
+        <!-- <van-cell title="自行送回" data-name="1" clickable="{{false}}">
+          <van-switch checked="{{ refundParam.selfReback }}" size="20px" slot="right-icon" bind:change="reseiveSwitch" />
+        </van-cell> -->
+
+        <!-- <van-field value="{{ refundParam.ems_number }}" data-pro="ems_number" wx:if="{{!refundParam.selfReback}}" label="物流单号" bind:change="onChange" placeholder="请输入物流单号">
+          <van-icon slot="right-icon" name="scan" size="44rpx" bindtap="_scanQr" />
+        </van-field> -->
+
+        
+      <!-- </van-cell-group> -->
+    <!-- </view>
+  </van-skeleton> -->
+  <van-skeleton row="6" title loading="{{loading}}">
+    <view style="margin-bottom:20rpx">
+      <van-cell-group>
+        <van-field value="{{ refundParam.mark }}" input-align="right" data-pro="mark" label="留言"  type="textarea" placeholder="请输入留言" autosize border="{{ false }}" />
+      </van-cell-group>
+    </view>
+  </van-skeleton>
+  <van-skeleton row="6" title loading="{{loading}}">
+    <view style="margin-bottom:20rpx">
+      <van-cell-group title="瑕疵图片">
+        <view style="padding:20rpx;background:#fff">
+          <van-uploader file-list="{{ fileList }}" max-count="9" bind:after-read="afterRead" multiple preview-size="90px" deletable bind:delete="delete" />
+        </view>
+      </van-cell-group>
+    </view>
+  </van-skeleton>
+  <van-button type="danger" block bindtap="_submit">提交退货</van-button>
+
+  <van-dialog id="van-dialog" />
+  <van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:close="onClose" bind:select="onSelect" />
+</view>

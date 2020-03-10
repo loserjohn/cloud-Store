@@ -1,0 +1,6 @@
+/* components/loadMore/loadMore.wxss */
+.loadmore{
+  margin-bottom: 20rpx;
+  width:100%;
+  text-align: center
+}

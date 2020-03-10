@@ -1,0 +1,31 @@
+<!--miniprogram/pages/list_module/list_module.wxml-->
+<scroll-view style='witht:100%;height:100%' scroll-y class='resultBox' bindscrolltoupper="upper" bindscrolltolower="lower" enable-back-to-top="true" scroll-with-animation="true" upper-threshold="-150">
+  <view>
+    <block wx:for="{{allstores}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <van-card tag="{{item.restaurant.rating + '分'}}" title="{{item.restaurant.name}}" thumb="{{item.restaurant.image_path}}" thumb-class="cm_PrePic" custom-class="cm_List">
+
+        <view slot="tags">
+          <view class='flex'>
+            <view class='f1'>月售: {{item.restaurant.recent_order_num}}笔</view>
+            <!-- <view class='f1 cm_t_r'>
+            <van-tag type="primary" custom-class="cm_mark_inline ">{{item.restaurant.delivery_mode.text}}</van-tag>
+          </view> -->
+          </view>
+
+          <view>
+            {{item.restaurant.float_minimum_order_amount}}元起送 | 配送费 ￥{{float_delivery_fee}}
+          </view>
+          <!-- <view>
+          <van-tag wx:for="{{item.restaurant.support_tags}}" plain wx:for-index="idx2" wx:for-item="item2" wx:key="idx2" type="default" custom-class="cm_mark_inline " wx:if="{{idx2<2}}">{{item2.text}}</van-tag>
+        </view> -->
+          <view wx:for="{{item.restaurant.activities}}" plain wx:for-index="idx3" wx:for-item="item3" wx:key="idx3" wx:if="{{idx3<1}}" class='flex'>
+            <view>
+              <van-tag type="{{item3.icon_name=='首'?'success':(item3.icon_name=='特'?'danger':'primary')}}" custom-class="cm_mark_inline ">{{item3.icon_name}}</van-tag>
+            </view>
+            <text class='van-ellipsis cm_ellipsis cm_des'>{{item3.description}}</text>
+          </view>
+        </view>
+      </van-card>
+    </block>
+  </view>
+</scroll-view>

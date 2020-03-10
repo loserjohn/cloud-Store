@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-stepper": "@vant/weapp/stepper",
+    "van-checkbox": "@vant/weapp/checkbox",
+    "van-checkbox-group": "@vant/weapp/checkbox-group",
+    "van-submit-bar": "@vant/weapp/submit-bar",
+    "van-overlay": "@vant/weapp/overlay"
+  },
+  "navigationBarTitleText": "分类管理"
+}

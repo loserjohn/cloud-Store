@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
+
+
+    <view>
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view>
+  <!-- <button class="userinfo-nickname" bindtap="testFun">测试add函数</button> -->
+
+</view>
+
+<van-dialog use-slot async-close show="{{ show }}" show-cancel-button bind:confirm="_authorize" bind:close="onClose" bind:getuserinfo="getUserInfo">
+  <van-row custom-class="cm_t_c ">
+     <van-col span="24">
+      <text >用户授权</text>
+     </van-col>
+    <van-col span="24">
+      <view class='cm_avatar'>
+        <open-data type="userAvatarUrl" class="" ></open-data>
+      </view>   
+    </van-col>
+     <button class="userinfo-nickname" open-type='getUserInfo' bindgetuserinfo='_userinfo'>点击获取 openid</button>
+  </van-row>
+
+</van-dialog>

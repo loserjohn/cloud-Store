@@ -1,0 +1,5 @@
+/* miniprogram/pages/search/search.wxss */
+.cm_block_btn{
+  display: block;
+  margin: 10rpx auto
+}

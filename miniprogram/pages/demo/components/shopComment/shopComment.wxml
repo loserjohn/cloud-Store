@@ -1,0 +1,77 @@
+<!--pages/components/shop_comment/shop_comment.wxml-->
+<!-- <wxs module="filter" src="../../../util/filter.wxs"></wxs> -->
+
+<view class='flex panel block1'>
+  <view class='f2 flex'>
+    <view class='cm_prize'>
+      {{rating.food_score}}
+    </view>
+    <view class='f1'>
+      商家评分
+      <view class='starsBox' style="width:{{(rating.food_score/5)*120}}rpx">
+        <image src='../../../static/images/stars.png' style='width:120rpx;height:20rpx'></image>
+      </view>
+    </view>
+  </view>
+  <view class='f1 cm_t_c'>
+    <text>味道</text>
+    <view class='fs18'>{{rating.taste_score}}</view>
+  </view>
+  <view class='f1 cm_t_c' style='border-right:1rpx solid #eee'>
+    <text>包装</text>
+    <view class='fs18'>{{rating.package_score}}</view>
+  </view>
+  <view class='f1 cm_t_c'>
+    <text>配送</text>
+    <view class='fs18'>{{rating.rider_score}}</view>
+  </view>
+</view>
+
+<view class='box block2'>
+  <block wx:for="{{tags}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <van-button type="{{commentType==idx?'primary':'default'}}" data-typekey="{{idx}}" bind:click="_swichType" custom-class="cm_mark_inline " size="small">{{item.name}} {{item.count}}</van-button>
+  </block>
+
+</view>
+
+<view class='box '>
+  <view class="block3">
+    <van-checkbox value="{{checked}}" bind:change="_onChange">只显示有内容的评价</van-checkbox>
+  </view>
+  <view>
+    <block wx:for="{{comments}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class='flex commentItem'>
+        <view class='foodPre'>
+          <image src="https://fuss10.elemecdn.com/6/a5/9b0c00a87e3fa545c4f37f51a1ffdjpeg.jpeg?imageMogr/format/webp/thumbnail/!60x60r/gravity/Center/crop/60x60/" class='cm_avatar'></image>
+        </view>
+        <view class='f1'>
+          <view>
+            <view class=''>{{item.username}}
+              <text class='fr'>{{item.rated_at}} </text>
+            </view>
+          </view>
+          <view>
+            <image src='../../../static/images/stars.png' style='width:120rpx;height:20rpx'></image>
+          </view>
+          <view class='cm_text' >
+            {{item.rating_text}}
+          </view>
+          <view  class='cm_p'>
+            {{item.reply.content}}
+          </view>
+          <view>
+            <image src="https://fuss10.elemecdn.com/d/9b/acd309af25808c69290433e60f1fcjpeg.jpeg?imageMogr/format/webp/thumbnail/300x/" style='width:320rpx;height:320rpx'></image>
+          </view>
+          
+          <view>
+             <block wx:for="{{item.food_ratings}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2">
+              <van-tag plain   type="primary" custom-class="cm_mark_inline " size="small">{{item2.rate_name}}</van-tag>
+            </block>
+          </view>
+        </view>
+
+      </view>
+
+    </block>
+  </view>
+</view>

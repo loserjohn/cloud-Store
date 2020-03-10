@@ -1,0 +1,75 @@
+/* miniprogram/pages/merchant/merchant.wxss */
+.shopBox{
+  position: relative;
+  padding:40rpx 20rpx;
+  color: #fff;
+  width: 100vw;
+  box-sizing: border-box;
+  background: #fff;
+}
+.bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0
+}
+.avatar{
+  width:160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  display: block;
+  z-index: 1
+}
+.shopMsg{
+  padding: 0 20rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+  position: relative;
+  overflow: hidden
+}
+.floor{
+  z-index: 1
+}
+.title{
+  padding: 0 20rpx;
+  line-height: 3
+}
+.bar{
+  width: 8rpx;
+  height: 28rpx;
+  background: orangered;
+  margin-right: 20rpx
+}
+.boxs{
+  background: #fff;
+  padding: 0 20rpx
+}
+.menusBox{
+  padding: 20rpx;
+  /* margin-bottom: 20rpx; */
+  background: #fff;
+  color: #333
+}
+.text_s{
+   font-size: 20rpx;
+   color: #666
+}
+.menus{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin:0 auto 
+}
+.mark{
+  color: orangered;
+  font-size: 40rpx;
+  text-align: center
+}
+.storeBox{
+  margin-top: 20rpx;
+  padding-top: 20rpx
+}

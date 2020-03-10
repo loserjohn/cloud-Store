@@ -1,0 +1,48 @@
+<!--pages/list/list.wxml-->
+
+<view class='cm_main'>
+  <view class='flex cm_wraper'>
+    <view class='f1 cm_t_c ' bindtap="_filter">
+      综合排序
+      <van-icon class='' style='' name="arrow" />
+    </view>
+    <view class='f1 cm_t_c '  >
+      价格排序
+      <van-icon class='' style='' name="arrow" />
+    </view>
+    <view class='f1 cm_t_c ' >
+      离我最近
+      <van-icon class='' style='' name="arrow" />
+    </view>
+    <view class='f1 cm_t_c '  bindtap="_filterBoxToggle">
+      筛选
+      <van-icon class='' style='' name="arrow" />
+    </view>
+  </view>
+
+  <scroll-view class="cm_wraper" scroll-x style="width: 100%">
+    <view wx:for="{{foodType}}" data-typeId="{{index}}" bindtap='_chooseType' wx:key="index" class="cm_wraper_item">{{item.text}} </view>
+  </scroll-view>
+
+  <view class='resultBox'>
+    <ListModule fooType="{{fooType}}"></ListModule>
+  </view>
+
+</view>
+
+<van-popup show="{{ show }}" bind:close="_onClose"   position="top" overlay-style="mask">
+    <view class='filterBox'>
+       <view class='filterType'>配送最低</view>
+        <view class='filterType'>起送价最低</view>
+         <view class='filterType'>好评最高</view>
+    </view>
+</van-popup>
+
+
+<van-popup show="{{ filtershow }}" bind:close="_onClose"   position="right" overlay-style="mask">
+    <view class='filterBox2'>
+       <view class='filterType'>配送最低</view>
+        <view class='filterType'>起送价最低</view>
+         <view class='filterType'>好评最高</view>
+    </view>
+</van-popup>

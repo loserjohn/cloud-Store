@@ -1,0 +1,37 @@
+<!--components/proSelect/proSelect.wxml-->
+<view class="page  flex flex_y flex_center">
+  <view class="f1 flex flex_center" style="width:100vw">
+    <scroll-view scroll-y="true" class="asideBar">
+      <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+        <block wx:for="{{options}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+          <van-sidebar-item title="{{item.name}}" />
+        </block>
+      </van-sidebar>
+    </scroll-view>
+    <scroll-view scroll-y="true" class="articleBar">
+      <view style="padding:20rpx">
+        <block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+          <view class="flex  flex_center" style="background:#fafafa">
+            <view class="f1">
+              <van-card price="{{ item.pro_prize.value }}" thumb-mode="aspectFill" currency="￥" lazy-load origin-price="{{ item.pro_prize.original }}" tag="{{ item.pro_class_text }}" desc="{{ item.pro_des }}" title="{{ item.pro_name }}" thumb="{{ item.pro_pre }}">
+                <!-- <view slot="footer">
+                <van-button size="mini" data-index="{{idx}}" type="danger" bindtap="_checkOne">{{item.selected?'取消选中':'选中商品'}}</van-button>
+              </view> -->
+              </van-card>
+            </view>
+            <view style="padding:0 30rpx">
+              <van-icon name="checked" class="custom-icon" color="{{item.selected?'#ff1e1e':'#ddd'}}" data-index="{{idx}}"     data-status="{{item.selected}}"  size="70rpx"  bindtap="_chooseOne"/>
+            </view>
+          </view>
+        </block>
+        <!-- <van-divider contentPosition="center" bindtap="_loadMore">点击加载更多</van-divider> -->
+        <loadMore loadmore="{{loadmore}}" bindtap="_loadMore"></loadMore>
+      </view>
+    </scroll-view>
+  </view>
+  <view class=" footer flex flex_center">
+    <van-button type="danger"  icon="close"  bindtap="_back">
+      确认选择
+    </van-button>
+  </view>
+</view>

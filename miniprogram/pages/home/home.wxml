@@ -1,0 +1,77 @@
+<!--pages/home/home.wxml-->
+
+<!-- 
+<view class='flex flex_center'>
+  <view  class='f1'>
+    当前位置:
+  </view>
+  <view class='f1'>
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch">
+      <view slot="title" bind:tap="onSearch"></view>
+    </van-search>
+  </view>
+
+</view> -->
+
+
+
+
+<view class='bannerBox'>
+  <swiper indicator-dots="true" autoplay="true" interval="3000" duration="2000" class='swiperBox' bindchange="bindchange" style="height:{{imgheights[current]}}rpx">
+    <block wx:for="{{banner}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <swiper-item class='cm_slider'>
+        <image src="{{item.src}}" data-id='{{idx}}' class="slide-image cm_cover" bindload="imageLoad" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='menus flex'>
+  <block wx:for="{{menus}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class='menusItem'>
+      <view class='menusIcon'>
+        <image src="{{item.icon}}" mode='widthFix' class='cm_contain'></image>
+      </view>
+      <view class='cm_t_c menusText reset'>
+        {{item.text}}
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 公告栏 -->
+<view class='noticeBox flex'>
+  <view>公告：</view>
+  <view class='f1'>
+    <swiper indicator-dots="false" vertical="true" circular="true" class='cm_notice' autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{notices}}" wx:key="index">
+        <swiper-item class="cm_notice_item cm_ellipsis">
+          {{item.content}}
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+
+
+<view class='cm_title' style='padding:20rpx 30rpx'>热门推荐</view>
+<view>
+  <block wx:for="{{allstores}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class='pro_box'>
+      <image class='pro_pic' mode='aspectFill' src="{{item.pro_pre}}"></image>
+
+      <view class='pro_title'>{{item.pro_name}}</view>
+      <view class='pro_des'>{{item.pro_des}}</view>
+      <view class='flex flex_center'>
+        <view class=''>
+          <view class='prizeBox'>￥
+            <text class='lastPrize'> {{item.pro_prize.value }}</text>{{item.pro_prize.unit}}</view>
+          <view class='delePrize'>日常原价：{{item.pro_prize.original}}</view>
+        </view>
+        <view class='f1'></view>
+        <van-button plain type="primary" size="small" data-id="{{item._id}}" bindtap="scan" >抢购</van-button>
+      </view>
+    </view>
+  </block>
+</view>
+
+<van-dialog id="van-dialog" />

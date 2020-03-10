@@ -1,0 +1,65 @@
+<!--miniprogram/pages/shop/shop.wxml-->
+<view style="padding-bottom:160rpx">
+  <!-- <view class='logoBgBox '> -->
+  <!-- <view class='mask'></view> -->
+
+  <!-- </view> -->
+
+  <view class='' >
+    <view class=' cm_t_c flex msgContent' >
+      <image class='logo' src='{{rst.image_path}}'></image>
+
+      <view class='f1' style='max-width:80%'>
+        <view class='cm_h3 cm_t_r cor_w' style='color:#fff'>
+          {{rst.name}}
+          <van-icon class='cm_icon' style='' name="arrow" />
+        </view>
+        <view class='cm_t_r cor_g cm_ellipsis t' style='color:#fff'>
+          评价{{rst.rating}} 月售{{rst.recent_order_num}}单 蜂鸟转送约{{rst.float_minimum_order_amount}}分钟
+        </view>
+      </view>
+    </view>
+
+    <view class='flex lh2 msgBox'>
+      <view class='f1'>
+        <van-tag type="success" custom-class="cm_mark_inline ">{{rst.activities[0].icon_name}}</van-tag>
+        <text class='fs12'>{{rst.activities[0].tips}}</text>
+      </view>
+      <view class='cm_t_r fs12'>
+        {{rst.activities.length}}个优惠
+        <van-icon class='cm_icon_s' style='' name="arrow" />
+      </view>
+    </view>
+    <view class='msgBox cm_p cm_ellipsis cor_g'>
+      公告： {{rst.promotion_info}}
+    </view>
+  </view>
+
+  <view class=''>
+    <van-tabs active="{{ active }}" bind:change="onChange" custom-class="shopTabBG">
+      <van-tab title="点餐" custom-class="shopTabBox">
+        <scroll-view scroll-y style="height: 100%">
+          <FoodsMenus selectFood="{{selectFood}}" bindpselect="_select" recommend="{{recommend[0].items}}" foodMenus="{{menu}}"> </FoodsMenus>
+        </scroll-view>
+      </van-tab>
+
+      <van-tab title="评价" custom-class="shopTabBox">
+        <scroll-view scroll-y style="height: 100%">
+          <shopComment></shopComment>
+        </scroll-view>
+      </van-tab>
+
+      <van-tab title="商家" custom-class="shopTabBox">
+        <scroll-view scroll-y style="height: 100%">
+          <shopMerchant merchant="{{rst}}"></shopMerchant>
+        </scroll-view>
+      </van-tab>
+    </van-tabs>
+
+  </view>
+
+</view>
+
+<view class="shopCar">
+  <shopCar binddeleteAll="_deleteAll" selectFood="{{selectFood}}" bindselect="_select"></shopCar>
+</view> 

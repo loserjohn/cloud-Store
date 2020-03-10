@@ -1,0 +1,19 @@
+
+<view class="page">
+  <block wx:for="{{[1,1]}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class='pro_box'>
+      <image class='pro_pic' mode='aspectFill' src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4062810592,1422615935&fm=26&gp=0.jpg"></image>
+      <view class='pro_title'>双十一活动</view>
+      <view class='pro_des'>报名截止：2020-12-5</view>
+      <view class='flex flex_center'>
+        <!-- <view class=''>
+          <view class='prizeBox'>￥
+            <text class='lastPrize'> {{item.pro_prize.value }}</text>{{item.pro_prize.unit}}</view>
+          <view class='delePrize'>日常原价：{{item.pro_prize.original}}</view>
+        </view> -->
+        <view class='f1'></view>
+        <van-button plain type="primary" size="small" bindtap="scan" >立即报名</van-button>
+      </view>
+    </view>
+  </block>
+</view>

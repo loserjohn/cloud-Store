@@ -1,0 +1,61 @@
+<!--pages/cars/cars.wxml-->
+<view class='mask'  wx:if="{{listSwicth}}" bindtap='_close'></view>
+<view style='position:relative'>
+  <view class="shopCarBox flex">
+    <view class='carIcon'>
+      <view class="iconCir {{selectFoods.length>0?'active':''}}" >
+        <van-icon name="cart" style='font-size:40rpx' class="{{selectFoods.length>0?'cor_w':''}}" />
+        <van-tag round type="danger" custom-class="carNum" wx:if="{{selectFoods.length>0}}">{{selectFoods.length}}</van-tag>
+      </view>
+
+    </view>
+    <view class='f1' bind:tap='_toggleList'>
+      <view  class="p1 {{amount>0?'current':''}}">{{amount>0?'￥'+amount:'未选购商品'}}</view>
+      <view class='p2 '>另需配送费3.0元</view>
+    </view>
+    <view class='carBotton'>
+      <view class='enabledBuy' wx:if="{{amount>20}}">
+        立即购买
+      </view>
+      <view wx:el>
+        20元起送
+      </view>
+    </view>
+  </view>
+
+  <view class='cardList'>
+    <view class='notice cm_t_c'>
+      还差多少水电费
+    </view>
+
+    <view class=''>
+      <van-transition name="fade-up" show="{{listSwicth}}" >
+        <!-- 操作 -->
+        <view class='flex orderBtn orderMenu'>
+          <view class='f1'>
+            已选商品
+          </view>
+          <view bindtap='_deleteAll'>
+            <van-icon name="delect" style='font-size:40rpx' /> 清空
+          </view>
+        </view>
+        <!-- 已点 -->
+        <view class='orderMenu'>
+        
+          <view class='flex orderItem' wx:for="{{selectFoods}}" wx:if="item.count>0" wx:for-index="idx" wx:key="idx" wx:for-item="item">
+            <view class='orderItemTitle cm_ellipsis'>
+              {{item.foodMsg.name}}
+            </view>
+            <view class='f1 cm_t_r cm_prize'>
+                ￥{{ item.amout }}
+            </view>
+            <view style='width:120rpx;height:40rpx;margin-top:20rpx;line-height:40rpx'>
+                <FoodNum food="{{item.foodMsg}}" bindselect="_select" num="{{item.count}}"></FoodNum>
+            </view>
+          </view>
+        </view>
+      </van-transition>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,148 @@
+<!--miniprogram/pages/product_detail/product_detail.wxml-->
+<view class='page'>
+  <van-skeleton  row="1" loading="{{loading}}" >
+    <swiper indicator-dots="true" autoplay="true" circular="true" interval="3000" duration="2000" class='swiperBox'>
+      <block wx:for="{{item.product_imgs}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+        <swiper-item class='slider'>
+          <image src="{{item}}" data-id='{{idx}}' mode="" class=" cm_cover" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </van-skeleton>
+  <van-skeleton  row="4" title loading="{{loading}}">
+    <view class='cm_box'>
+      <view class='flex flex_center '>
+        <view>
+          <view class='cm_title'>{{item.pro_name}}</view>
+          <text class='cm_des'>{{item.pro_des}}</text>
+        </view>
+        <view class='f1'></view>
+        <view class='' bindtap="onToggle" data-type="{{3}}">
+          <van-icon name="certificate" color='#f9451c' size='24' />
+          <view class="share">分享</view>
+        </view>
+
+      </view>
+      <view class='prizeBox'>￥
+        <text class='lastPrize'> {{item.pro_prize.value }}</text>{{item.pro_prize.unit}}
+      </view>
+      <view class='flex flex_center van-hairline--top'>
+        <view class='f1 cm_des'>运费：{{item.pro_ems==0?'包邮':item.pro_ems}}</view>
+        <view class='f1 cm_t_c cm_des'>日销量：{{item.pro_sell.date}}</view>
+        <view class='f1 cm_t_r cm_des'>月销量：{{item.pro_sell.mounth}}</view>
+      </view>
+    </view>
+  </van-skeleton>
+  <van-skeleton title row="1" loading="{{loading}}">
+    <view style='margin-bottom:20rpx'>
+      <van-cell title="配送" value="自提" size="large" is-link border="{{ false }}" data-type="{{1}}" bindtap="onToggle" />
+    </view>
+  </van-skeleton>
+  <van-skeleton avatar avatar-shape="square" avatar-size="50px" title row="2" loading="{{loading}}">
+    <view class='cm_box' wx:id="store">
+      <view class='flex  flex_center'>
+        <image src="{{item.pro_store_logo}}" mode='' class='store_logo'></image>
+        <view class='f1'>{{item.pro_store_name}}</view>
+        <van-button plain type="danger" size="mini" round bindtap='_toHome'>进店</van-button>
+      </view>
+      <view class='van-hairline--top flex ' style='padding-top:20rpx;margin-top:20rpx'>
+        <view class='flex flex_center'>
+          <van-icon name="passed" color='#666' />
+          <text class='cm_des tagsText'> 企业认证</text>
+        </view>
+        <view class='flex flex_center'>
+          <van-icon name="passed" color='#666' />
+          <text class='cm_des tagsText'> 店铺认证</text>
+        </view>
+        <view class='flex flex_center'>
+          <van-icon name="passed" color='#666' />
+          <text class='cm_des tagsText'> 担保交易</text>
+        </view>
+      </view>
+    </view>
+  </van-skeleton>
+
+
+  <van-skeleton  row="2" loading="{{loading}}">
+    <view class='cm_box'>
+      <view class='flex flex_center'>
+        <view class=''>宝贝评价</view>
+        <view class='f1'></view>
+        <text class="cm_des">暂无评价</text>
+      </view>
+    </view>
+  </van-skeleton>
+
+  <van-skeleton title  row="6" loading="{{loading}}">
+    <van-tabs bind:click="onClick" sticky>
+      <van-tab title="商品详情">
+        <view class='boxs'>
+          <block wx:for="{{item.pro_detailsPic}}" wx:for-index="idx" wx:for-item="it" wx:key="idx">
+            <image src="{{it}}" mode='widthFix' class='cm_contain'></image>
+          </block>
+        </view>
+      </van-tab>
+      <van-tab title="成交记录">
+        <view class='boxs'>
+
+        </view>
+      </van-tab>
+    </van-tabs>
+  </van-skeleton>
+
+
+  <van-overlay show="{{ showPoster }}">
+    <view class="posterBox flex flex_y flex_center">
+      <poster drawing='{{drawing}}' savebtnText='{{savebtnText}}' canvas-style='canvas-style' savebtn-style='savebtn-style' bindcompleted='completed' bindsaveImage='saveImage' />
+    </view>
+  </van-overlay>
+
+  <van-popup show="{{ show.show1 }}" data-type="{{1}}" bind:close="onToggle" round position="bottom">
+    <view style="width:100%">
+      <view class="modaltitle" style="width:100%">配送方式</view>
+      <block wx:for="{{item.pro_emsWays}}" wx:for-index="idx" wx:for-item="it" wx:key="idx">
+        <van-cell icon="location-o" value="{{it}}" />
+      </block>
+      <van-button type="danger" size="large" bind:tap="onToggle" data-type="{{1}}">我知道了</van-button>
+    </view>
+  </van-popup>
+
+  <van-popup show="{{ show.show2 }}" data-type="{{2}}" bind:close="onToggle" position="bottom">
+    <view class="">
+      <view class="createBox">
+        <view class="flex flex_center">
+          <image src="{{item.pro_pre}}" class="proPic"></image>
+          <view class="f1">
+            <view>{{item.pro_name}}</view>
+            ￥
+            <text class='lastPrize'> {{amount}}</text>
+          </view>
+          <van-icon name="close" data-type="{{2}}" bind:tap="onToggle" size="20" color="#666" />
+        </view>
+        <view class="flex flex_center van-hairline--top" style='padding-top:16rpx;margin-top:20rpx'>
+          <view class="">
+            <view>购买数量</view>
+            <view class="cm_des">剩余：{{item.pro_rest}}</view>
+          </view>
+          <view class="f1"></view>
+          <van-stepper value="{{ count}}" max="{{item.pro_rest}}" integer bind:change="stepChoose" disable-input="true" />
+        </view>
+      </view>
+      <van-button type="danger" size="large" bind:tap="_nextStep">下一步</van-button>
+    </view>
+  </van-popup>
+
+  <!-- <button open-type="share" >aaa</button> -->
+  <van-action-sheet show="{{ show.show3 }}" actions="{{ actions }}" data-type="{{3}}" cancel-text="取消" bind:close="onToggle" bind:select="onSelect" />
+
+
+  <van-goods-action>
+    <van-goods-action-icon icon="wap-home-o" text="首页" bind:click="_toHome" />
+    <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+    <van-goods-action-icon icon="cart-o" text="购物车" bind:click="_goCarts" info="{{cartsNum}}" />
+    <van-goods-action-button text="加入购物车" type="warning" data-type="{{1}}" bind:click="_readyOrder" />
+    <van-goods-action-button text="立即购买" data-type="{{2}}" bind:click="_readyOrder" />
+  </van-goods-action>
+</view>
+
+<van-dialog id="van-dialog" />

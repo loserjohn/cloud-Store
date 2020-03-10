@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-submit-bar": "@vant/weapp/submit-bar"
+  },
+  "navigationBarTitleText": "退款详情"
+}
+
+
+

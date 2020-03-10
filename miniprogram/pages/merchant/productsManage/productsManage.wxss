@@ -1,0 +1,22 @@
+/* miniprogram/pages/merchant/ productsManage/productsManage.wxss */
+.page{
+  padding-bottom: 100rpx
+}
+.bars{
+  padding: 8rpx 20rpx
+}
+.menus{
+  width: 100rpx;
+  height: 100rpx;
+  /* background: red; */
+  /* margin-top: 100rpx */
+}
+.footer{
+
+  position: fixed;
+  width: 100vw;
+  height: 100rpx;
+  left:0;
+  bottom: 0;
+  background: #fff
+}

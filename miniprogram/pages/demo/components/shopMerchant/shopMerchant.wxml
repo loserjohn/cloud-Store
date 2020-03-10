@@ -1,0 +1,51 @@
+<!--pages/components/shop_merchant/shop_merchant.wxml-->
+<view class='box'>
+  <view class='cm_h3'>配送信息</view>
+  <view>
+    <van-tag type="primary" custom-class="cm_mark_inline " size="small">{{shopMsg.delivery_mode.text}}</van-tag>
+    <text>约 {{shopMsg.order_lead_time}} 时间送达，距离 {{shopMsg.distance}}m</text>
+  </view>
+  <view>
+    配送费{{shopMsg.float_delivery_fee}}元
+  </view>
+</view>
+
+<view class='box'>
+  <view class='cm_h3'>活动与服务</view>
+  <view>
+    <block wx:for="{{shopMsg.activities}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view>
+        <van-tag color="#f2826a" type="danger" custom-class="cm_mark_inline " size="small">{{item.icon_name}}</van-tag>
+        <text>{{item.description}}</text>
+      </view>
+
+    </block>
+  </view>
+</view>
+
+<view class='box'>
+  <view class='cm_h3'>商家实景</view>
+  <view class='flex'>
+    <block wx:for="{{shopMsg.albums}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <image src="https://fuss10.elemecdn.com/7/dd/1c3e148b7ace23cf843d8a638c178jpeg.jpeg?imageMogr/format/webp/thumbnail/!200x200r/gravity/Center/crop/200x200/" class='albums'></image>
+
+    </block>
+  </view>
+</view>
+
+<view class='box'>
+  <view class='cm_h3'>商家信息</view>
+  <view class=''>
+    <view class='cm_p'>{{shopMsg.description?shopMsg.description:'暂无简介'}}</view>
+
+  </view>
+</view>
+
+<van-cell-group>
+  <van-cell title="品类" value="内容" />
+  <van-cell title="商家电话" is-link value="{{shopMsg.id}}" />
+  <van-cell title="地址" is-link arrow-direction="down" value="内容" border="{{ false }}" />
+  
+  <van-cell title="营业时间" is-link value="{{shopMsg.address}}" />
+  <van-cell title="营业资质" is-link value="" />
+</van-cell-group>

@@ -1,0 +1,30 @@
+/* pages/components/num/num.wxss */
+@import '../../../../app.wxss';
+.numBox{
+  text-align: right;
+  justify-content: flex-end;
+  /* background: red; */
+  height: 40rpx;
+  width: 120rpx
+}
+.numBtn{
+  width: 36rpx;
+  height: 36rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #0079f3;
+  color:#0079f3;
+  text-align: center;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  line-height: 26rpx;
+  font-size: 32rpx;
+  font-weight: 600
+}
+.add{
+  background: #0079f3;
+  color: #fff
+}
+.count{
+  padding: 0 10rpx
+}

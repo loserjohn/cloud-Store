@@ -1,0 +1,29 @@
+/* pages/list/list.wxss */
+
+.resultBox{
+  position: absolute;
+  left: 0;
+  top: 144rpx;
+  background: #f1f1f1;
+  width: 100%;
+  bottom: 0;
+  overflow: hidden
+}
+.filterBox{
+  box-sizing: border-box;
+  padding: 20rpx
+}
+.filterBox2{
+    box-sizing: border-box;
+  padding: 20rpx;
+  width: 70vw;
+  height: 100vh
+}
+.filterType{
+  text-align: left!important;
+  line-height: 2;
+  border-bottom: 1rpx dotted #eee
+}
+.mask{
+  top: 52rpx!important
+}

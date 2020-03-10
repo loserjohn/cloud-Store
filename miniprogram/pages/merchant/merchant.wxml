@@ -1,0 +1,83 @@
+<!--miniprogram/pages/merchant/merchant.wxml-->
+<view class="page">
+  <view class="shopBox van-hairline--bottom ">
+    <view class="shopMsg flex  flex_center">
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582818931185&di=a4078d5b94f71f701ce3e67b88611dd0&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F83%2F33%2F325c51645fefdbc.jpg" mode="aspectFill" class="bg"></image>
+      <!-- <view class='avatar'> -->
+      <image class='avatar' src="{{store.store_logo}}" mode="aspectFill" ></image>
+      <!-- </view> -->
+      <view class='f1 floor' style="margin-right:20rpx">
+        <view class=" floor">
+          <view style="font-size:32rpx">{{store.store_name}}</view>
+        </view>
+        <view class="flex flex_center  ">
+          <view class="floor f1 ">level：{{store.store_stars}}</view>
+           <text class="floor">{{store.store_status.text}}</text>
+        </view>
+        
+        <view class="flex flex_center storeBox van-hairline--top ">
+          <text class="f1">服务：{{store.store_score.fw}}</text>
+           <text class="f1">品质：{{store.store_score.pz}}</text>
+            <text class="f1">物流：{{store.store_score.wl}}</text>
+        </view>
+      </view>
+     
+      <van-icon color="#fff" name="arrow" />
+    </view>
+  </view>
+  <view class='menusBox'>
+    <van-row>
+      <van-col span="6">
+        <!-- <image src='../../static/images/my/m4.png' class='menus'></image> -->
+        <view class="mark">0.0</view>
+        <view class='cm_t_c text_s'>余额</view>
+      </van-col>
+      <van-col span="6">
+        <!-- <image src='../../static/images/my/m5.png' class='menus'></image> -->
+        <view class="mark">{{store.store_sell.date_sell}}</view>
+        <view class='cm_t_c text_s'>当日销量</view>
+      </van-col>
+      <van-col span="6">
+        <!-- <image src='../../static/images/my/m6.png' class='menus'></image> -->
+        <view class="mark">{{store.store_sell.mounth_sell}}</view>
+        <view class='cm_t_c text_s'>当月交销量</view>
+      </van-col>
+      <van-col span="6">
+        <view class="flex flex_y flex_center">
+          <image src='../../static/images/my/m6.png' style="width:52rpx;height:52rpx;border-radius:50%"></image>
+          <view class='cm_t_c text_s'>数据统计</view>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+  <view class="title flex flex_center">
+    <text class="bar"></text>
+    <view class="f1">店铺订单</view>
+  </view>
+  <view class='menusBox'>
+      <van-grid square border="{{false}}">
+        <van-grid-item icon="todo-list-o" text="全部订单" url="/pages/merchant/merchantOrders/merchantOrders?current=0" />
+        <van-grid-item icon="balance-list-o" text="待发货" url="/pages/merchant/merchantOrders/merchantOrders?current=1" />
+        <van-grid-item icon="gift-o" text="运输中" url="/pages/merchant/merchantOrders/merchantOrders?current=2" />
+        <van-grid-item icon="point-gift-o" text="退货管理" url="/pages/merchant/mer_refundList/mer_refundList" />
+      </van-grid>
+  </view>
+
+  <view class="title flex flex_center">
+    <text class="bar"></text>
+    <view class="f1">常用功能</view>
+  </view>
+  <view class="boxs">
+    <van-grid square border="{{false}}" clickable>
+      <van-grid-item icon="fire-o" text="商品管理" url="{{'/pages/merchant/productsManage/productsManage?sid='+ store._id}}" />
+      <van-grid-item icon="point-gift-o" text="实名认证" />
+      <van-grid-item icon="shop-collect-o" text="活动报名" url="{{'/pages/merchant/activities/activities'}}" />
+      <van-grid-item icon="award-o" text="店铺布置" />
+      <van-grid-item icon="medal-o" text="开团活动" />
+      <van-grid-item icon="bookmark-o" text="限时购活动" url="{{'/pages/merchant/seckill/seckill'}}" />
+      <van-grid-item icon="coupon-o" text="提现" />
+      <van-grid-item icon="gem-o" text="分类管理" url="{{'/pages/merchant/classManage/classManage'}}"/>
+    </van-grid>
+  </view>
+
+</view>

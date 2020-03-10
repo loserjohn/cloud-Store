@@ -1,0 +1,10 @@
+<!--miniprogram/pages/food.wxml-->
+<view>
+  <image src='https://fuss10.elemecdn.com/b/d2/9485c6c98c90bd360e6fc9401229cjpeg.jpeg?imageMogr/format/webp/thumbnail/!375x375r/gravity/Center/crop/375x375/' class='cm_contain'> </image>
+  <view class='box'>
+    <view class='cm_h3'>香酥鸡腿</view>
+    <view class='cm_prize'>￥30</view>
+    <view class='cm_p'>加油，给努力的自己加个鸡腿！（主要原料：鸡腿，面粉，油）</view>
+  </view>
+
+</view>

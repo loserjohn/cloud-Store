@@ -1,0 +1,136 @@
+<!--miniprogram/pages/mine/mine.wxml-->
+<view class='flex userBox'>
+  <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581354195305&di=acc4f87a818a47260a4b90c79b2b31a5&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201509%2F28%2F20150928003700_dGkRL.jpeg" mode="aspectFill"
+    class="bg"></image>
+  <view class='avatar'>
+    <open-data type="userAvatarUrl" class=""></open-data>
+  </view>
+  <view class='f1'>
+    <view>
+      <!-- <view class='cor_w cm_h3'>{{userInfo.nickName}}</view> -->
+      <view class="cor_w cm_h3">昵称：
+        <open-data type="userNickName"></open-data>
+      </view>
+      <view class="cor_w cm_p">性别：
+        <open-data type="userGender" lang="zh_CN"></open-data>
+      </view>
+      <!-- <view class='cor_w cm_p'>会员等级：{{userInfo.level}}</view> -->
+      <!-- <view class='cor_w cm_p'>性别：{{userInfo.gender==1?'男':'女'}}</view> -->
+    </view>
+  </view>
+  <van-icon color="#efa433" style='line-height:160rpx' name="arrow" />
+  <view class="flex  flex_center phoneBox" wx:if="{{!isLogin}}">
+    <view class="cm_des">同步微信，查看更多优惠</view>
+    <view class="f1"></view>
+    <!-- <van-button type="danger" size="small" bindtap="_authorization">同步</van-button> -->
+    <van-button  open-type="getUserInfo"  size="small" type="danger" bindgetuserinfo="_getUserInfo">同步</van-button>
+  </view>
+</view>
+
+<view class='menusBox'>
+  <van-row>
+    <van-col span="6">
+      <!-- <image src='../../static/images/my/m4.png' class='menus'></image> -->
+      <view class="mark">0.0</view>
+      <view class='cm_t_c text_s'>余额</view>
+    </van-col>
+    <van-col span="6">
+      <!-- <image src='../../static/images/my/m5.png' class='menus'></image> -->
+      <view class="mark">0.0</view>
+      <view class='cm_t_c text_s'>积分</view>
+    </van-col>
+    <van-col span="6">
+      <!-- <image src='../../static/images/my/m6.png' class='menus'></image> -->
+      <view class="mark">0</view>
+      <view class='cm_t_c text_s'>卡券</view>
+    </van-col>
+    <van-col span="6">
+      <!-- <image src='../../static/images/my/m6.png' class='menus'></image> -->
+      <view class="mark">{{carsNums}}</view>
+      <view class='cm_t_c text_s'>购物车</view>
+    </van-col>
+  </van-row>
+</view>
+
+<!-- <view class="boxs"> -->
+<navigator url="/pages/merchant/merchant">
+  <image src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2390178561,3872531183&fm=26&gp=0.jpg" mode="aspectFill" class="merchant"></image>
+</navigator>
+
+<!-- </view> -->
+
+
+<view class='menusBox'>
+  <view class="flex flex_center ">
+    <view>我的订单</view>
+    <view class="f1"></view>
+
+    <view class="cm_des" data-url="/pages/orders/orders?current=0" bindtap="_href">全部订单</view>
+    <van-icon color="#666" name="arrow" />
+  </view>
+  <view class="van-hairline--top" style='padding-top:20rpx;margin-top:20rpx'>
+    <van-row>
+      <van-col span="6">
+        <view style="text-align:center" data-url="/pages/orders/orders?current=1" bindtap="_href">
+          <van-icon name="todo-list-o" size="28" color="#666" />
+        </view>
+        <view class='cm_t_c text_s'>待付款</view>
+      </van-col>
+      <van-col span="6">
+        <view style="text-align:center" data-url="/pages/orders/orders?current=2" bindtap="_href">
+          <van-icon name="balance-list-o" size="28" color="#666" />
+        </view>
+        <view class='cm_t_c text_s'>待发货</view>
+      </van-col>
+      <van-col span="6">
+        <view style="text-align:center" data-url="/pages/orders/orders?current=3" bindtap="_href">
+          <van-icon name="gift-o" size="28" color="#666" />
+        </view>
+        <view class='cm_t_c text_s'>待收货</view>
+      </van-col>
+      <van-col span="6">
+        <view style="text-align:center" data-url="/pages/orders/refundList/refundList" bindtap="_href">
+          <van-icon name="point-gift-o" size="28" color="#666" />
+        </view>
+        <view class='cm_t_c text_s'>退货</view>
+      </van-col>
+    </van-row>
+  </view>
+
+</view>
+
+<van-cell-group>
+  <van-cell icon="coupon-o" is-link>
+    <view slot="title">
+      <span class="van-cell-text">卡券</span>
+      <!-- <van-tag type="danger">标签</van-tag> -->
+    </view>
+  </van-cell>
+  <van-cell icon="send-gift-o" is-link bindtap="chooseAddress">
+    <view slot="title">
+      <span class="van-cell-text">地址管理</span>
+      <!-- <van-tag type="danger">标签</van-tag> -->
+    </view>
+  </van-cell>
+  <van-cell icon="setting-o" is-link>
+    <view slot="title">
+      <span class="van-cell-text">个人设置</span>
+      <!-- <van-tag type="danger">标签</van-tag> -->
+    </view>
+  </van-cell>
+  <!-- <van-cell title="单元格" icon="location" is-link /> -->
+</van-cell-group>
+
+
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+<view class="flex flex_y flex_center modalBox">
+<view class="wrapper  ">
+   <view class='avatar authavatar'>
+    <open-data type="userAvatarUrl" class=""></open-data>
+  </view>
+    <view>同步微信，获取海量优惠信息</view>
+    <van-button icon="wechat"   custom-class="loginBtn" open-type="getUserInfo"  size="small" type="primary" bindgetuserinfo="_getUserInfo">立即授权</van-button>
+  </view>
+</view>
+  
+</van-overlay>

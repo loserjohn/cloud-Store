@@ -1,0 +1,4 @@
+/* miniprogram/pages/orderDetail'/orderDetail.wxss */
+page{
+  background: #f5f5f5
+}

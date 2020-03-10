@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-loading": "@vant/weapp/loading",
+    "van-divider": "@vant/weapp/divider"
+    
+  }
+}

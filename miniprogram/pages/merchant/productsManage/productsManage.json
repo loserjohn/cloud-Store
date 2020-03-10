@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-sticky": "@vant/weapp/sticky",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-card": "@vant/weapp/card",
+    "loadMore": "/components/loadMore/loadMore"
+  },
+  "navigationBarTitleText": "商品管理"
+}

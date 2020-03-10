@@ -1,0 +1,97 @@
+/* miniprogram/pages/mine/mine.wxss */
+.userBox{
+  justify-content: center;
+  position: relative;
+  /* background: #fff; */
+  padding:60rpx 40rpx 100rpx 40rpx;
+  /* margin-bottom: 20rpx */
+  /* background-image:url('../../static/images/bg.jpg'); */
+}
+.bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1
+}
+.avatar{
+  width:160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx
+}
+.menusBox{
+  padding:30rpx 20rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+  color: #333
+}
+.text_s{
+   font-size: 20rpx;
+   color: #666
+}
+.menus{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin:0 auto 
+}
+.mark{
+  color: orangered;
+  font-size: 40rpx;
+  text-align: center
+}
+
+.userinfo{
+  background: none;
+  border: none!important;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
+  text-align: left;
+  
+}
+.phoneBox{
+ width: 100%;
+ height: 80rpx;
+ box-sizing: border-box;
+ line-height: 80rpx;
+ position: absolute;
+ padding: 0 40rpx;
+ bottom: 0;
+ left: 0;
+ background: rgba(255,255,255,.3)
+}
+.loginBtn{
+  margin-top: 40rpx;
+  width:100%
+}
+.modalBox{
+  width: 100vw;
+  height: 100vh
+}
+.wrapper{
+  width: 60%;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  background: #fff;
+  text-align: center;
+}
+.authavatar{
+  margin: 20rpx auto;
+  border:1rpx solid #eee
+}
+.boxs{
+  margin-bottom: 20rpx;
+  /* padding: 20rpx; */
+  background: #fff;
+   box-shadow:  0 0 4rpx #ddd;
+}
+.merchant{
+  /* border-radius: 10rpx; */
+ margin-bottom: 10rpx;
+  width: 100%;
+  height: 200rpx
+}

@@ -1,0 +1,61 @@
+<!--miniprogram/pages/merchant/ productsManage/productsManage.wxml-->
+<view class="page">
+
+  <van-sticky>
+    <van-dropdown-menu>
+      <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}"  bind:change="_change"  />
+      <view class=" f1 flex flex _center">
+        <view class="f1"></view>
+        <van-icon name="apps-o" class="menus" size="42rpx" color="{{manage?'#ff1e1e':'#aaa'}}" bindtap="_toggleManage" />
+      </view>
+    </van-dropdown-menu>
+  </van-sticky>
+  <block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class="flex  flex_center" style="background:#fff">
+      <van-transition show="{{ manage }}" name="fade-left">
+        <van-icon name="checked" class="menus" size="42rpx" color="{{item.checked?'#ff1e1e':'#aaa'}}" data-index="{{idx}}" bindtap="_checkOne" />
+      </van-transition>
+
+      <view class="f1">
+        <van-card price="{{ item.pro_prize.value }}" thumb-mode="aspectFill" currency="￥" lazy-load origin-price="{{ item.pro_prize.original }}" tag="{{ item.pro_class_text }}" desc="{{ item.pro_des }}" title="{{ item.pro_name }}" thumb="{{ item.pro_pre }}" />
+      </view>
+    </view>
+  </block>
+  <loadMore loadmore="{{loadmore}}"></loadMore>
+
+  <view class="footer">
+    <van-transition show="{{ manage }}" name="fade-up">
+      <view class=" flex flex_center" style="width:100vw;height:100rpx">
+        <view class="f1 flex  flex_center" bindtap="_allSelec">
+          全选
+          <van-icon name="checked" class="menus" size="42rpx" color="{{allSelectStatus?'#ff1e1e':'#aaa'}}" />
+        </view>
+        <view class="f1">
+          <van-button type="danger" block bind:click="_delectMul">
+            删除
+          </van-button>
+        </view>
+      </view>
+    </van-transition>
+    <van-transition show="{{ !manage }}" name="fade-up">
+      <view class=" flex flex_center" style="width:100vw;height:100rpx">
+        <view class="f1 ">
+          <navigator url="../productEdit/productEdit">
+            <van-button type="danger" icon="add-o" block>
+              添加新商品
+            </van-button>
+          </navigator>
+        </view>
+        <view class="f1">
+          <navigator url="../classManage/classManage">
+            <van-button type="danger" plain icon="apps-o" block bind:click="onConfirm">
+              分类管理
+            </van-button>
+          </navigator>
+        </view>
+      </view>
+    </van-transition>
+  </view>
+   <van-notify id="van-notify" />
+
+</view>

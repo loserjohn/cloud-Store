@@ -1,0 +1,46 @@
+/* components/proSelect/proSelect.wxss */
+.page{
+  width: 100vw;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  margin-top: 10vh
+}
+.asideBar{
+  width: 24vw;
+  height: calc(90vh - 100rpx);
+  background: #eee
+}
+.articleBar{
+  width: 76vw;
+  height: calc(90vh - 100rpx);
+  background: #fff
+}
+.footer{
+  /* position: fixed; */
+  /* left:0;
+  bottom: 0; */
+  width: 100vw;
+  height: 100rpx ;
+  /* display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center; */
+   background: #fff
+}
+.f1{
+  flex:1
+}
+.flex {
+  display: flex;
+  display: -webkit-flex;
+}
+.flex_y{
+  flex-direction: column
+}
+.flex_center{
+  justify-content: center;
+  align-items: center
+}

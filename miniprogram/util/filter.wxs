@@ -1,0 +1,13 @@
+
+var utilFN = {
+  toFixed: function (value, key) {
+    if(!value)return '-';
+    // console.log(value)
+      return value.toFixed(key)
+
+   
+  }
+}
+module.exports = {
+  _toFixed: utilFN.toFixed
+}

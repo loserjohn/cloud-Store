@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "loadMore": "/components/loadMore/loadMore"
+  },
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "退款退货",
+  "enablePullDownRefresh": true
+}

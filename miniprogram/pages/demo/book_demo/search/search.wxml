@@ -1,0 +1,24 @@
+<!--miniprogram/pages/search/search.wxml-->
+<van-row custom-class="cm_t_c van-hairline--bottom">
+  <van-col span="24">
+    <van-button type="primary" custom-class="cm_block_btn" :loading="true" bind:click="_scanCode">扫描图书二维码</van-button>
+  </van-col>
+</van-row>
+
+<view>
+ <block wx:for="{{hisBooksList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <van-card    tag="{{item.binding}}" thumb-link="{{'../bookDetail/bookDetail?id='+item._id }}"	 price="{{item.price}}"  desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{ item.image}}">  
+      <view slot="tags">
+        <view  wx:for="{{item.tags}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2" wx:if="{{idx2<2}}">
+          <van-tag type="primary" custom-class="cm_mark" >{{item2.name}}</van-tag>
+        </view>
+       
+      </view>   
+     
+      <view slot="footer">
+        <van-button size="mini" >收藏</van-button>
+        <van-button size="mini">删除记录</van-button>
+      </view>
+    </van-card>
+  </block>
+</view>

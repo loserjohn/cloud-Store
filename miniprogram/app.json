@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/orders/orders",
+    "pages/mine/mine",
+    "pages/orderDetail/orderDetail",
+    "pages/product_detail/product_detail",
+    "pages/carts/carts",
+    "pages/createOrder/createOrder",
+    "pages/success/success",
+    "pages/refund/refund",
+    "pages/merchant/merchant",
+    "pages/merchant/productsManage/productsManage",
+    "pages/merchant/productEdit/productEdit",
+    "pages/merchant/classManage/classManage",
+    "pages/merchant/merchantOrders/merchantOrders",
+    "pages/merchant/mer_orderDetails/mer_orderDetails",
+    "pages/merchant/activities/activities",
+    "pages/merchant/seckill/seckill",
+    "pages/orders/refundList/refundList",
+    "pages/merchant/mer_refundList/mer_refundList",
+    "pages/merchant/mer_refundDetails/mer_refundDetails",
+    "pages/orders/refundDetail/refundDetail"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff1e1e",
+    "navigationBarTitleText": "福利购",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "./static/images/tabBar/tab_home_normal.png",
+        "selectedIconPath": "./static/images/tabBar/tab_home_selected.png"
+      },
+      {
+        "pagePath": "pages/carts/carts",
+        "text": "购物车",
+        "iconPath": "./static/images/tabBar/tab_category_normal.png",
+        "selectedIconPath": "./static/images/tabBar/tab_category_selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./static/images/tabBar/tab_my_normal.png",
+        "selectedIconPath": "./static/images/tabBar/tab_my_selected.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button",
+    "van-card": "@vant/weapp/card",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col",
+    "van-tag": "@vant/weapp/tag",
+    "van-panel": "@vant/weapp/panel",
+    "van-dialog": "@vant/weapp/dialog",
+    "van-field": "@vant/weapp/field",
+    "van-nav-bar": "@vant/weapp/nav-bar",
+    "van-search": "@vant/weapp/search",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-icon": "@vant/weapp/icon",
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-popup": "@vant/weapp/popup",
+    "van-transition": "@vant/weapp/transition",
+    "van-skeleton": "@vant/weapp/skeleton",
+    "van-action-sheet": "@vant/weapp/action-sheet",
+    "van-radio": "@vant/weapp/radio",
+    "van-radio-group": "@vant/weapp/radio-group",
+    "van-switch": "@vant/weapp/switch",
+    "van-notify": "@vant/weapp/notify"
+  },
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "poster": {
+      "version": "1.2.2",
+      "provider": "wxbf07f0f22c6c200d"
+    }
+  }
+}

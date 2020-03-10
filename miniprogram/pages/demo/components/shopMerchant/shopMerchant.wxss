@@ -1,0 +1,12 @@
+/* pages/components/shop_merchant/shop_merchant.wxss */
+@import '../../../../app.wxss';
+.box{
+  box-sizing: border-box;
+  padding:0 40rpx;
+  margin-bottom: 40rpx
+}
+.albums{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx
+}

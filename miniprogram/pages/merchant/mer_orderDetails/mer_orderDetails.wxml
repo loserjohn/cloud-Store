@@ -1,0 +1,132 @@
+<!--miniprogram/pages/createOrder/createOrder.wxml-->
+<wxs src="../../../filter/time.wxs" module="format" />
+<view class="page">
+  <van-skeleton row="1" loading="{{loading}}">
+
+    <view class="statusBox" >{{ order.order_status.text }}</view>
+  </van-skeleton>
+
+  <van-skeleton row="1" loading="{{loading}}" wx:if="{{order.selfReseive}}">
+    <van-cell title="自取" data-name="1" clickable="{{false}}"> </van-cell>
+  </van-skeleton>
+  <van-skeleton row="4" loading="{{loading}}" wx:if="{{!order.selfReseive}}">
+    <view class="flex flex_center addressBox">
+      <view class="f1">
+        <view>{{order.receive_info.userName?order.receive_info.userName:''}}</view>
+        <view class="cm_des">{{order.receive_info.telNumber?order.receive_info.telNumber:''}}</view>
+        <view class="cm_des">{{order.receive_info.detailInfo?(order.receive_info.provinceName + order.receive_info.cityName + order.receive_info.countyName + order.receive_info.detailInfo):''}} </view>
+      </view>
+      <view style="margin-left:60rpx">
+        <!-- <van-icon color="#666" name="arrow" /> -->
+      </view>
+    </view>
+  </van-skeleton>
+
+  <van-skeleton avatar title row="6" loading="{{loading}}">
+    <!-- <block wx:for="{{allOrderList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx"> -->
+    <view class="panelbox">
+      <view class="flex storeBox flex_center van-hairline--bottom">
+        <image src="{{order.store_logo}}" style="width:40rpx;height:40rpx;border-radius:50%;margin-right:20rpx"></image>
+        <!-- <van-icon color="#666" name="shop-o" /> -->
+        <text>{{order.store_name}}</text>
+        <view class="f1"></view>
+      </view>
+      <block wx:for="{{order.goods}}" wx:for-index="idx" wx:for-item="it" wx:key="ind">
+        <view class="flex flex_center itemBox">
+          <image src="{{it.pro_pre}}" class='pro_pic' mode='aspectFill'></image>
+          <view class="f1 flex flex_y">
+            <text> {{it.pro_name}}</text>
+            <view class='prizeBox'>
+              <text class='lastPrize'> {{it.pro_prize.value }}</text>{{it.pro_prize.unit}}
+              <!-- ￥150 -->
+            </view>
+            <view class="f1"></view>
+          </view>
+          <!-- <van-icon color=" #666 " name="arrow " /> -->
+          <view class="flex flex_center">
+            <van-icon name="cross" />
+            <text>{{it.count}}</text>
+          </view>
+        </view>
+      </block>
+      <view class=" flex flex_center van-hairline--top" style="padding:16rpx 0">
+        <view class="">邮费</view>
+        <view class="f1"></view>
+        <view class="">{{order.all_ems}}</view>
+      </view>
+    </view>
+  </van-skeleton>
+  <!-- </block> -->
+  <van-skeleton row="3" loading="{{loading}}">
+    <view style="margin-bottom:20rpx ">
+      <!-- <van-cell-group> -->
+      <van-cell title="下单时间 " value="{{format.formatDate(order.createTime)  }}" size="small" border="{{ false }} " />
+      <van-cell title="商品金额 " value="{{totalSum}}" size="small" border="{{ false }} " />
+      <van-cell title="运费 " value="{{order.all_ems}} " border="{{ false }} " size="small" />
+      <!-- </van-cell-group> -->
+    </view>
+  </van-skeleton>
+  <van-skeleton title row="2" loading="{{loading}}">
+  <view style="margin-bottom:20rpx ">
+    <van-cell-group >
+      <van-field value="{{ message }} " label="卖家备注 " type="textarea " placeholder="请输入留言备注信息 " autosize border="{{ false }} " />
+    </van-cell-group>
+    </view>
+  </van-skeleton>
+ 
+  <van-skeleton title row="6" loading="{{loading}}" wx:if="{{order.order_status.value==5}}">
+     <view class="" style="padding:20rpx 30rpx">退货信息</view>
+    <van-cell-group>
+      <van-cell title="自行送回 " value="{{order.refundMsg.selfReback?'是':'否'  }}" />
+      <van-cell title="物流单号 " wx:if="{{!order.refundMsg.selfReback}}" value="{{order.refundMsg.ems_number}}" size="small"  />
+      <van-cell title="退款原因 " value="{{order.refundMsg.reason}}" size="small"  />
+      <view class="cellBoxs">
+        <view >退款备注</view>
+        <view>{{order.refundMsg.remark?order.refundMsg.remark:'无'}}</view>
+      </view>
+      <view class="cellBoxs">
+        <view >问题图片</view>
+        <view class="flex  flex_center " style="justify-content:flex-start">
+            <block wx:for="{{order.refundMsg.problem_pics}}" wx:for-index="idx" wx:for-item="it" wx:key="ind">
+              <view class="flex flex_center itemBox">
+                <image src="{{it}}" class='pro_pic' mode='aspectFill'></image>
+              </view>
+            </block>
+        </view>
+      </view>
+    </van-cell-group>
+  </van-skeleton>
+
+  <view class="footer flex flex_center">
+    <!-- <view class="f1" wx:if="{{order.order_status.value==5 && order.refundMsg.refund_status==1 }}">
+      <van-button block square type="danger" data-oid="{{order._id}}" bindtap="_toRefund">同意退款</van-button>
+    </view> -->
+    <!-- <view class="f1" wx:if="{{order.order_status.value==5 && order.refundMsg.refund_status==1 }}">
+      <van-button block square type="danger" data-oid="{{order._id}}" plain bindtap="_toggleReason">退款驳回</van-button>
+    </view> -->
+    <view class="f1" wx:if="{{order.order_status.value==3 }}">
+      <van-button block square type="danger" data-oid="{{order._id}}"  >查看物流</van-button>
+    </view>
+    <view class="f1" wx:if="{{order.order_status.value==2}}">
+      <van-button block square type="danger" data-oid="{{order._id}}"  bindtap="_toggleEmsCode" >立即发货</van-button>
+    </view>
+  </view>
+
+  <van-dialog
+    use-slot
+    title="请填写物流单号"
+    show="{{ showEms }}"
+    show-cancel-button
+    bind:confirm="_dispatch"
+    bind:cancel="_toggleEmsCode"
+  >
+    <van-field
+        value="{{ emsNum }}"
+        placeholder="请填写物流单号"
+        border="{{ false }}"
+        bind:change="onchange"
+      />
+  </van-dialog>
+<!-- 
+  <van-action-sheet show="{{ showReason }}" actions="{{ resons }}" cancel-text="取消" bind:close="_toggleReason" bind:cancel="_toggleReason" bind:select="onReson" /> -->
+  </view>

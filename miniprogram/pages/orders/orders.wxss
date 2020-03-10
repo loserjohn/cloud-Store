@@ -1,0 +1,67 @@
+/* pages/orders/orders.wxss */
+.pages{
+  padding-top: 88rpx;
+  background: #f4f4f4;
+}
+.cm_wraper{
+  position: fixed;
+  left:0;
+  top: 0;
+  z-index: 100
+}
+.resultBox{
+  width: 100%;
+  /* height: 100%; */
+  bottom: 0!important;
+  overflow: hidden;
+  /* background: red */
+  
+}
+.box{
+  width: 100%;
+  height: 100%;
+  /* background: red; */
+  overflow: hidden
+}
+
+.panelbox{
+  padding:1rpx 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx
+}
+.storeBox{
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-bottom: 20rpx
+}
+.pro_box{
+  padding: 20rpx
+}
+.pro_pic{
+  width: 160rpx;
+  height:160rpx;
+  /* border-radius: 20rpx */
+  margin-right: 30rpx
+}
+.pro_title{
+  font-size: 32rpx;
+  line-height: 1.4
+}
+.itemBox{
+  margin-bottom: 20rpx
+}
+.cm_wraper{
+  background: #fff;
+  line-height: 88rpx;
+  height: 89rpx
+}
+.prizeBox{
+  color: orangered;
+  font-size: 32rpx;
+  line-height: 1.4;
+  font-weight: bolder
+}
+.lines{
+  line-height: 1.6;
+  padding: 8rpx 0 
+}

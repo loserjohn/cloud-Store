@@ -1,0 +1,8 @@
+<!--components/noitems.wxml-->
+<view class="flex flex_y flex_center viewbg">
+  <image class="noPic" src="../../static/images/noItems.jpg" mode="aspectFill"></image>
+  <navigator url="/pages/home/home" open-type="switchTab">
+     <van-button icon="star-o"  custom-class="btns"  round size="small" type="danger" >立即去逛逛</van-button>
+  </navigator>
+   
+</view>

@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-button": "../../vant/button/index",
+    "van-tag": "../../vant/tag/index",
+    "van-dialog": "../../vant/dialog/index",
+    "van-icon": "../../vant/icon/index"
+  }
+}

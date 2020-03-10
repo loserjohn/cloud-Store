@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "ListModule": "../components/list_module/list_module"
+  },
+  "navigationBarBackgroundColor": "#0079f3",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "分类",
+  "backgroundColor": "#f1f1f1",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh":true
+}

@@ -1,0 +1,2 @@
+/* miniprogram/pages/list_module/list_module.wxss */
+@import '../../../../app.wxss'

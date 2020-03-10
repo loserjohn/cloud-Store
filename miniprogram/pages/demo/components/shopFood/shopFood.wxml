@@ -1,0 +1,100 @@
+<!--pages/components/shopFood/shopFood.wxml-->
+<view class='cm_panel'>
+  <view class='cm_h3'>
+    商家推荐
+  </view>
+  <view class=''>
+    <scroll-view class="cm_wraper" scroll-x style="width: 100%">
+      <block wx:for="{{recommend}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view id="" class="cm_wraper_item recommentItem">
+          <image src='https://fuss10.elemecdn.com/0/d6/703424cb2eeda580e33c71320444fjpeg.jpeg?imageMogr/format/webp/thumbnail/240x/' style='width:200rpx;height:200rpx' data-food="{{item}}" bind:tap="_toDetail"></image>
+          <view class='cm_ellipsis cm_t_l' data-food="{{item}}" bind:tap="_toDetail">
+            {{item.name}} 
+          </view>
+          <view class='cm_p cm_t_l'>
+            月售{{item.month_sales}} 好评{{item.satisfy_rate}}%
+          </view>
+          <view class='flex' style='line-height:40rpx'>
+            <view class='f1 cm_t_l cor_y'>￥
+              <text class='cm_prize'>{{item.activity.fixed_price}}</text>
+            </view>
+            <view class='f1 cm_t_r'>
+              <FoodNum food="{{item}}" bindselect="_select" num="{{selectFood[item.item_id]?selectFood[item.item_id].count:0}}"></FoodNum>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+<view class='panel  bannerBox'>
+  <image src='https://fuss10.elemecdn.com/7/ce/d2a688579aeee13f35481a93aa3f9png.png?imageMogr/format/webp/thumbnail/686x/' class='cm_cover'></image>
+</view>
+
+<!-- 食物部分 -->
+<view class='panel foodMenusBoxx'>
+  <!-- 左边菜单 -->
+  <view class='leftBar'>
+    <scroll-view scroll-y class='BarScroll'>
+      <block wx:for="{{foodMenus}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view id="" class="menusItem cm_ellipsis {{active==index?'active':''}}" data-typekey="{{index}}" bindtap="_foodType">
+          {{item.name}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 右边点餐 -->
+  <view class='rightContent'>
+    <scroll-view scroll-y class='BarScroll' scroll-into-view="{{activeId}}" scroll-with-animation="true" enable-back-to-top="true" bindscroll="_scroll">
+      <block wx:for="{{foodMenus}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <!-- 类别 -->
+        <view id="typeId{{index}}">
+          <block wx:for="{{item.foods}}" wx:key="idx" wx:for-index="idx" wx:for-item="its">
+            <view id="" class='flex foodItems'>
+              <view class='foodPic' bind:tap="_toDetail">
+                <image src='https://fuss10.elemecdn.com/2/7e/1aa3bb60014a9b7b790872523b64fjpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/' data-food="{{its}}" bind:tap="_toDetail" style='width:160rpx;height:160rpx;'></image>
+              </view>
+              <view class=' foodContent'>
+                <view class='cm_title cm_ellipsis' data-food="{{its}}" bind:tap="_toDetail">{{its.name}}</view>
+                <view class='cm_p cm_ellipsis fs12' data-food="{{its}}" bind:tap="_toDetail">{{its.description}}</view>
+                <view class='cm_p fs12'> 月售{{its.month_sales}} 好评{{its.satisfy_rate}}%</view>
+                <view class='flex' style='margin:20rpx 0 '>
+                  <view class='f1 cm_t_l cor_y'>￥
+                    <text class='cm_prize'>{{its.specfoods[0].price}}</text>
+                  </view>
+                  <view class='f1 cm_t_r '>
+                    <!-- <van-icon class='cm_icon_add' style='' name="add" />
+                     -->
+                    <FoodNum food="{{its}}" bindselect="_select" num="{{selectFood[its.item_id]?selectFood[its.item_id].count:0}}"></FoodNum>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+<van-transition name="fade-up" show="{{toggle}}" custom-class="detailBox">
+  <!-- <view class='detailBox'> -->
+  <view style="width:100%;height:100%;position:relative">
+    <image src='https://fuss10.elemecdn.com/b/d2/9485c6c98c90bd360e6fc9401229cjpeg.jpeg?imageMogr/format/webp/thumbnail/!375x375r/gravity/Center/crop/375x375/' class='cm_contain'> </image>
+    <view class='box'>
+      <view class='cm_h3'>{{currentFood.name}}</view>
+      <view class='flex'>
+        <view class='f1 cm_prize'>￥{{currentFood.specfoods[0].price}}</view>
+        <view class=' cm_t_r'>
+          <FoodNum food="{{currentFood}}" bindselect="_select" num="{{selectFood[currentFood.item_id]?selectFood[currentFood.item_id].count:0}}"></FoodNum>
+        </view>
+      </view>
+
+      <view class='cm_p'>{{currentFood.description}}</view>
+    </view>
+
+    <van-icon name="close" custom-class='close' bind:tap="_close" />
+
+  </view>
+  <!-- </view> -->
+</van-transition>

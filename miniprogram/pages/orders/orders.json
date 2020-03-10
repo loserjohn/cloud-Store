@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+      "loadMore":"/components/loadMore/loadMore"
+    },
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "订单",
+    "enablePullDownRefresh": true
+}

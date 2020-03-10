@@ -1,0 +1,198 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wx7e46ba8e959d25d9",
+	"projectname": "WeiXin-CloudDemo",
+	"libVersion": "2.10.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": 0,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "list",
+					"pathName": "pages/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/orders/orders",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "ordedetail",
+					"pathName": "pages/orderDetail/orderDetail",
+					"query": "orderId =dsfasd sd dsf asdf "
+				},
+				{
+					"id": -1,
+					"name": "shop",
+					"pathName": "pages/shop/shop",
+					"query": "shopId =dsfasd sd dsf asdf "
+				},
+				{
+					"id": 5,
+					"name": "商品详情",
+					"pathName": "pages/product_detail/product_detail",
+					"query": "id=N7agx4kPnGfjZWle2gNMKEWV2OocFlDMi6jVCTeBpKwgLK4Y",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建订单",
+					"pathName": "pages/createOrder/createOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/carts/carts",
+					"pathName": "pages/carts/carts",
+					"query": "pid=20200209pro001",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "订单",
+					"pathName": "pages/orders/orders",
+					"query": "current=1",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "pages/orderDetail/orderDetail",
+					"pathName": "pages/orderDetail/orderDetail",
+					"query": "id=1582449900818ord2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/success/success",
+					"pathName": "pages/success/success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/refund/refund",
+					"pathName": "pages/refund/refund",
+					"query": "id=1582596550052ord2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/merchant",
+					"pathName": "pages/merchant/merchant",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/productEdit/productEdit",
+					"pathName": "pages/merchant/productEdit/productEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/productsManage/productsManage",
+					"pathName": "pages/merchant/productsManage/productsManage",
+					"query": "sid=LGckeTrHwIWJ1RygkSWTteBIX5mgFjnLN6Ll3u1ETkUwC5c8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/classManage/classManage",
+					"pathName": "pages/merchant/classManage/classManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/mer_orderDetails/mer_orderDetails",
+					"pathName": "pages/merchant/mer_orderDetails/mer_orderDetails",
+					"query": "id=1582596550052ord2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/seckill/seckill",
+					"pathName": "pages/merchant/seckill/seckill",
+					"query": "id=1582596550052ord2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orders/refundList/refundList",
+					"pathName": "pages/orders/refundList/refundList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/merchant/mer_orderDetails/mer_orderDetails",
+					"pathName": "pages/merchant/mer_orderDetails/mer_orderDetails",
+					"query": "id=1583569733868ord8",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "pages/orders/refundDetail/refundDetail",
+					"pathName": "pages/orders/refundDetail/refundDetail",
+					"query": "id=1583744531071ord9",
+					"scene": null
+				}
+			]
+		}
+	}
+}

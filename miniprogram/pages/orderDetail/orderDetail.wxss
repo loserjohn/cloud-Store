@@ -1,0 +1,85 @@
+/* miniprogram/pages/createOrder/createOrder.wxss */
+.page{
+  padding-bottom: 200rpx;
+  background: #f9f9f9
+}
+.addressBox{
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-bottom: 5rpx dashed orangered
+}
+.panelbox{
+  padding:1rpx 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx
+}
+.storeBox{
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-bottom: 20rpx
+}
+.pro_box{
+  padding: 20rpx
+}
+.pro_pic{
+  width: 160rpx;
+  height:160rpx;
+  /* border-radius: 20rpx */
+  margin-right: 30rpx
+}
+.pro_title{
+  font-size: 32rpx;
+  line-height: 1.4
+}
+.itemBox{
+  margin-bottom: 20rpx
+}
+.pro_des{
+  color: #999;
+}
+.prizeBox{
+  /* border-bottom: 1rpx solid #d3d3d3; */
+  color: orangered
+}
+.lastPrize{
+  font-size: 36rpx;
+  color: orangered;
+  /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif */
+  font-family:cursive;
+  font-weight: 600
+}
+.delePrize{
+  text-decoration-line:line-through;
+  font-size: 22rpx;
+  color: #999
+}
+.statusBox{
+  text-align: center;
+  padding: 40rpx;
+  color: #333;
+  font-size: 36rpx;
+  font-weight: bolder;
+  background: #fff;
+  margin-bottom: 20rpx
+}
+
+.footer{
+  width: 100vw;
+  height: 200rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff
+}
+.footTop{
+  width: 100vw;
+  height: 112rpx;
+}
+.prize{
+  color: orangered
+}
+.nums{
+  font-size: 36rpx;
+  font-weight: bolder
+}

@@ -1,0 +1,36 @@
+<!--miniprogram/pages/merchant/productEdit/productEdit.wxml-->
+<view class="page">
+  <van-cell-group title="商品封面(1张)">
+    <view style="padding:20rpx;background:#fff">
+      <van-uploader required file-list="{{ formParams.pro_pre }}" data-pro="pro_pre" max-count="1" data-pro="pro_pre" bind:after-read="afterRead" multiple preview-size="90px" deletable bind:delete="delete" />
+    </view>
+  </van-cell-group>
+  <van-cell-group title="商品展示图(小于5张)">
+    <view style="padding:20rpx;background:#fff">
+      <van-uploader required file-list="{{ formParams.product_imgs }}" data-pro="product_imgs" max-count="5" bind:after-read="afterRead" multiple preview-size="90px" deletable bind:delete="delete" />
+    </view>
+  </van-cell-group>
+  <van-cell-group title="基本信息">
+    <van-field value="{{ formParams.pro_name  }}" data-pro="pro_name" bind:change="onChange" input-align="right" required clearable label="商品名称" placeholder="请输入商品名称" bind:click-icon="onClickIcon" />
+    <van-field value="{{ formParams.pro_shortName  }}" data-pro="pro_shortName" bind:change="onChange" input-align="right" required label="商品短标题" placeholder="请输入短标题" required />
+    <van-field value="{{ formParams.pro_prize_value  }}" data-pro="pro_prize_value" bind:change="onChange" input-align="right" type="digit" label="商品现价" placeholder="请输入商品现价" required />
+    <van-field value="{{ formParams.pro_prize_original  }}" data-pro="pro_prize_original" bind:change="onChange" input-align="right" required clearable  type="digit"  label="商品原价" placeholder="请输入商品原价"  />
+
+    <van-cell required title="价格单位" value="{{formParams.pro_prize_unit}}" is-link data-pro="pro_prize_unit" bindtap="_selectUnit"/>
+    <van-cell required title="商品分类" value="{{formParams.pro_class_text}}" is-link data-pro="pro_class" bindtap="_selectClass"/>
+    <van-field value="{{ formParams.pro_ems  }}" data-pro="pro_ems" bind:change="onChange" input-align="right" type="number" label="邮费" placeholder="请输入邮费" required />
+    <van-field value="{{ formParams.pro_rest  }}"  data-pro="pro_rest" bind:change="onChange" input-align="right" type="number" label="商品库存" placeholder="请输入商品库存数量" required />
+  </van-cell-group>
+  <van-cell-group title="商品简介">
+    <van-field value="{{ formParams.pro_des  }}" data-pro="pro_des" bind:change="onChange" type="textarea" placeholder="请输入商品简介" autosize border="{{ false }}" />
+  </van-cell-group>
+  <van-cell-group title="商品详情图片(小于8张)">
+    <view style="padding:20rpx;background:#fff">
+      <van-uploader file-list="{{ formParams.pro_detailsPic  }}"  data-pro="pro_detailsPic" max-count="5" bind:after-read="afterRead" multiple preview-size="90px" deletable bind:delete="delete" />
+    </view>
+  </van-cell-group>
+  <van-button type="danger" block bind:click="_submit"> 创建商品</van-button>
+  <van-action-sheet show="{{ show }}" actions="{{ actions }}" cancel-text="取消" bind:close="onClose" bind:cancel="onClose" bind:select="onSelect" />
+  <van-action-sheet show="{{ show2 }}" actions="{{ units }}" cancel-text="取消" bind:close="onClose" bind:cancel="onClose" bind:select="onSelectUnit" />
+  <van-notify id="van-notify" />
+</view>

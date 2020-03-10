@@ -1,0 +1,10 @@
+/* miniprogram/pages/success.wxss */
+.page{
+  width: 100vw;
+  height: 100vh;
+}
+.sicon{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%
+}

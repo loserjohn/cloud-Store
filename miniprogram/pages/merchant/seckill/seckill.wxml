@@ -1,0 +1,41 @@
+<!--miniprogram/pages/merchant/seckill/seckill.wxml-->
+<!-- 秒杀 -->
+<wxs src="../../../filter/time.wxs" module="format" />
+<view class="page">
+
+  <van-overlay show="{{ show }}" z-index="{{100}}" bind:click="_togglePro">
+    <van-transition show="{{ show }}" custom-class="block" name="slide-up">
+      <view class="wraper" catchtap="_none">
+        <proSelect options="{{options}}" sid="{{sid}}" bind:closed="_togglePro" bind:selected="_selected"></proSelect>
+      </view>
+    </van-transition>
+  </van-overlay>
+  <view>
+    <block wx:for="{{selectedList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class="boxs">
+        <view>
+          <van-card price="{{ item.pro_prize.value }}" thumb-mode="aspectFill" currency="￥" lazy-load origin-price="{{ item.pro_prize.original }}" tag="{{ item.pro_class_text }}" desc="{{ item.pro_des }}" title="{{ item.pro_name }}" thumb="{{ item.pro_pre }}">
+          </van-card>
+        </view>
+        <view class="">
+          <van-cell-group>
+            <van-field value="{{ formList[idx].activity_prize }}" label="活动价格" input-align="right" data-index="{{idx}}" placeholder="活动价格" bind:change="onChange" />
+            <van-cell title="活动日期" value="{{format.formatDate(formList[idx].activity_date)   }}" is-link bindtap="_toggleDate" data-index="{{idx}}"/>
+            <van-cell title="活动时段" value="{{ formList[idx].activity_time?formList[idx].activity_time+'时':'' }}" is-link bindtap="_toggleTime" data-index="{{idx}}"/>
+          </van-cell-group>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="footer flex flex_center ">
+    <van-button class="f1" block square type="danger" plain bindtap="_togglePro">选择商品</van-button>
+    <van-button class="f1" block square type="danger" bindtap="_submit">确认提交</van-button>
+  </view>
+  <van-popup show="{{ showDate }}" position="bottom" bind:close="_toggleDate">
+    <van-datetime-picker type="date" value="{{ currentDate }}" bind:confirm="_setDate" bind:cancel="_toggleDate"  min-date="{{ minDate }}" formatter="{{ formatter }}" />
+  </van-popup>
+  <van-popup show="{{ showTime }}" position="bottom" bind:close="_toggleTime">
+    <!-- <van-datetime-picker type="time" value="{{ currentTime }}" bind:confirm="_setTime" bind:cancel="_toggleTime" min-hour="{{ minHour }}" max-hour="{{ maxHour }}" /> -->
+    <van-picker columns="{{ columns }}"  show-toolbar  bind:confirm="_setTime" bind:cancel="_toggleTime" />
+  </van-popup>
+</view>

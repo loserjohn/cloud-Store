@@ -1,0 +1,48 @@
+<!--pages/components/orders_module.wxml-->
+
+<!--miniprogram/pages/list_module/list_module.wxml-->
+<scroll-view style='witht:100%;height:100%' scroll-y class='resultBox' bindscrolltoupper="upper" bindscrolltolower="lower" enable-back-to-top="true" scroll-with-animation="true" upper-threshold="-150">
+  <view>
+    <block wx:for="{{orders}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class='flex cm_panel'>
+        <view class='cm_order_logo'>
+          <image src="{{item.restaurant_image_hash}}" class='cm_cover'></image>
+        </view>
+        <view class='cm_order_content f1'>
+          <view class='flex cm_order_header'>
+            <view class='cm_order_hea_l '>
+              <view class='cm_ellipsis cm_order_h3'>
+                 <navigator url="../shop/shop?shopId={{item.id}}" hover-class="navigator-hover">
+                {{item.restaurant_name}}
+            </navigator>
+              </view>
+              <view class='cm_order_p'>
+                {{item.formatted_created_at}}
+              </view>
+            </view>
+            <view class='cm_order_hea_r f1'>
+              <view class='cm_t_r'> {{item.status_bar.title}}</view>
+            </view>
+          </view>
+          <navigator url="../orderDetail/orderDetail?orderId={{item.id}}" hover-class="navigator-hover">
+            <view class='cm_order_body flex'>
+
+              <view class='f1'>
+                <block wx:for="{{item.basket.group[0]}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2">
+                  <view class='cm_ellipsis'>{{item2.name}}</view>
+                </block>
+                <text wx:if="{{item.basket.group[0].lengh>1}}">等{{item.basket.group[0].length}}件商品</text>
+              </view>
+              <view class='cm_t_r'> ￥{{item.total_amount}}</view>
+
+            </view>
+          </navigator>
+          <view class='cm_order_fooder cm_t_r'>
+            <van-button plain type="primary" size="mini">再来一单</van-button>
+            <van-button plain type="danger" size="mini">评价</van-button>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

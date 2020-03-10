@@ -1,0 +1,69 @@
+<!--pages/orders/orders.wxml-->
+<wxs src="../../../filter/time.wxs" module="format" />
+<view class='pages'>
+  <block wx:for="{{allOrderList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class="panelbox">
+      <view class="flex storeBox flex_center van-hairline--bottom">
+        <image src="{{item.store_logo}}" style="width:40rpx;height:40rpx;border-radius:50%;margin-right:20rpx"></image>
+        <!-- <van-icon color="#666" name="shop-o" /> -->
+        <text>{{item.store_name}}</text>
+        <view class="f1"></view>
+        <view>{{item.refundMsg.refund_status_text}}</view>
+      </view>
+      <block wx:for="{{item.goods}}" wx:for-index="idx" wx:for-item="it" wx:key="ind">
+        <view class="flex flex_center itemBox" bindtap="_navi" data-oid="{{item._id}}">
+          <image src="{{it.pro_pre}}" class='pro_pic' mode='aspectFill'></image>
+          <view class="f1 flex flex_y">
+            <text> {{it.pro_name}}</text>
+            <view class='prizeBox'>
+              <text class='lastPrize'> {{it.pro_prize.value }}</text>{{it.pro_prize.unit}}
+              <!-- ￥150 -->
+            </view>
+            <view class="cm_des" wx:if="{{item.order_status.value==1}}">
+              创建时间：{{ format.formatDate(item.createTime) }}
+            </view>
+            <view class="cm_des" wx:if="{{item.order_status.value==2}}">
+              下单时间：{{ format.formatDate(item.payTime) }}
+            </view>
+            <view class="cm_des" wx:if="{{item.order_status.value==4}}">
+              收货时间：{{ format.formatDate(item.receiveTime) }}
+            </view>
+            <view class="cm_des" wx:if="{{item.order_status.value==5}}">
+              申请时间：{{ format.formatDate(item.refundTime) }}
+            </view>
+          </view>
+          <!-- <van-icon color=" #666 " name="arrow " /> -->
+          <view class="flex flex_center">
+            <van-icon name="cross" />
+            <text>{{it.count}}</text>
+          </view>
+        </view>
+      </block>
+      <view class="van-hairline--top lines">
+        <view class="flex flex_center ">
+          <view class="f1 cm_t_l">
+            邮费
+          </view>
+          <view>{{item.all_ems}}</view>
+        </view>
+        <view class="flex flex_center ">
+          <view class="f1 cm_t_l">
+            总金额
+          </view>
+          <view>{{item.all_totalAmount}}</view>
+        </view>
+      </view>
+     <view class=" flex flex_center " style="padding:16rpx 0">
+      
+        <view class="f1"></view>
+        <van-button type="danger" size="mini" round  style="margin-left:10rpx" wx:if="{{item.refundMsg.refund_status!=5 && item.refundMsg.refund_status!=6}}"  bindtap="_navi" data-oid="{{item._id}}" >立即处理</van-button>
+        <!-- <van-button  size="mini" round  style="margin-left:10rpx" wx:if="{{item.refundMsg.refund_status==1}}" data-oid="{{item._id}}" >催促退款</van-button>
+        <van-button type="danger" size="mini" round wx:if="{{item.refundMsg.refund_status==1}}" data-oid="{{item._id}}" bindtap="_cancelOrder" plain style="margin-left:10rpx">取消申请</van-button> -->
+      </view> 
+    </view>
+  </block>
+  <view style="width:100%;height:40rpx" wx:if="{{allOrderList.length==0}}"></view>
+  <loadMore loadmore="{{loadmore}}"></loadMore>
+
+
+</view>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "proSelect":"../../../components/proSelect/proSelect",
+      "van-overlay": "@vant/weapp/overlay",
+      "loadMore": "/components/loadMore/loadMore",
+      "van-datetime-picker": "@vant/weapp/datetime-picker",
+      "van-picker": "@vant/weapp/picker"
+  },
+  "navigationBarTitleText": "秒杀助手"
+}

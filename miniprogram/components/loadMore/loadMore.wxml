@@ -1,0 +1,5 @@
+<!--components/loadMore/loadMore.wxml-->
+<view class="loadmore">
+  <van-loading  size="24px" color="#3385ff" wx:if="{{loadmore==1}}">{{text}}</van-loading>
+  <van-divider wx:else contentPosition="center" customStyle="color: #999;border-color: #eee;font-size: 12px;">{{text}}</van-divider>
+</view>

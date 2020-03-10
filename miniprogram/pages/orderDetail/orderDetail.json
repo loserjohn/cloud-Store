@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-submit-bar": "@vant/weapp/submit-bar"
+  },
+  "navigationBarTitleText": "订单详情"
+}

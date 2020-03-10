@@ -1,0 +1,68 @@
+/* miniprogram/pages/shop/shop.wxss */
+
+page {
+  /* background: red */
+}
+
+.logoBgBox {
+  height: 200rpx;
+  position: relative;
+  background: #eee;
+  background-size: cover;
+}
+
+.mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  /* position: absolute; */
+  width: 140rpx;
+  height: 140rpx;
+  /* left: 50%;
+  bottom: -20rpx;
+  margin-left: -70rpx; */
+  box-shadow: 0 0 4rpx #eee;
+}
+
+.msgBox {
+  box-sizing: border-box;
+  padding: 0 80rpx;
+}
+.msgContent{
+  background: #0079f3;
+  color: #fff;
+  width: 100%;
+  justify-content:space-between;
+  box-sizing: border-box;
+  padding:20rpx 40rpx
+}
+.shopTabBox {
+  width: 100%;
+  overflow: hidden;
+  height: -moz-calc(100vh - 240rpx);
+  /*chrome safari*/
+  height: -webkit-calc(100vh - 240rpx);
+  /*Standard */
+  height: calc(100vh - 240rpx);
+  /* background: gray; */
+}
+.shopCar{
+  background: rgba(61,61,63,.9);
+  width: 100%;
+  height: 120rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0
+}
+.cor_w{
+  color: #fff!important
+}
+.shopTabBG{
+  z-index: 0
+}

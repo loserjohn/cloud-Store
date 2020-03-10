@@ -1,0 +1,61 @@
+<!--miniprogram/pages/carts/carts.wxml-->
+<view class="page" wx:if="{{allStores.length>0}}">
+  <block wx:for="{{allStores}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class="panelbox">
+      <view class="flex storeBox flex_center van-hairline--bottom">
+        <view class="iconBox flex flex-center" data-idx="{{idx}}" bindtap="shopChooseGoods">
+          <!-- <van-icon name="cross" color="#f43e26" /> -->
+          <van-icon name="checked" color="{{item.checked?'#f43e26':'#eee'}}" size="24" />
+          <!-- <van-icon name="checked" color="#999" size="24"/> -->
+        </view>
+        <image src="{{item.store_logo}}" style="width:40rpx;height:40rpx;border-radius:50%;margin-right:20rpx"></image>
+        <!-- <van-icon color="#666" name="shop-o" /> -->
+        <text>{{item.store_name}}</text>
+        <view class="f1"></view>
+      </view>
+      <block wx:for="{{item.goods}}" wx:for-index="ind" wx:for-item="it" wx:key="ind">
+        <view class="flex flex_center itemBox">
+          <view class="iconBox flex flex-center" data-idx="{{idx}}" data-ind="{{it}}" bindtap="chooseSingleGoods">
+            <van-icon name="checked" color="{{allShoppingCart[it].checked?'#f43e26':'#eee'}}" size="22" />
+            <!-- <van-icon name="checked" color="#999" size="24"/> -->
+          </view>
+          <image src="{{allShoppingCart[it].pro_pre}}" class='pro_pic' mode='aspectFill'></image>
+          <view class="f1 flex flex_y">
+            <text> {{allShoppingCart[it].pro_name}}</text>
+            <view class='prizeBox'>
+              <text class='lastPrize'> {{allShoppingCart[it].pro_prize.value }}</text>{{allShoppingCart[it].pro_prize.unit}}
+              <!-- ￥150 -->
+            </view>
+            <view class="f1"></view>
+          </view>
+          <!-- <van-icon color=" #666 " name="arrow " /> -->
+          <view class="flex flex_center">
+            <van-icon name="cross" />
+            <text>{{allShoppingCart[it].count}}</text>
+          </view>
+        </view>
+      </block>
+      <view class=" flex flex_center van-hairline--top" style="padding:16rpx 0">
+        <view>邮费</view>
+        <view class="f1"></view>
+        <view>{{item.all_ems}}</view>
+      </view>
+    </view>
+  </block>
+
+  <van-submit-bar price="{{ totalAmount }}" button-text="提交订单" bind:submit="_submitOrder" tip="{{ true }}">
+    <view class="flex flex_center" bindtap="_allChoose" style="margin-right:10rpx">
+      <van-icon name="checked" color="{{allChoose?'#f43e26':'#eee'}}" size="22" style="margin: 0 20rpx" /> 全选
+    </view>
+    <van-transition show="{{ least}}" custom-class="block" name="fade">
+      <van-button round plain type="danger" size="mini" class="animated fadeIn" bindtap="_clear">删除</van-button>
+    </van-transition>
+
+    <view slot="tip">
+      您的收货地址不支持同城送,
+      <text>修改地址</text>
+    </view>
+  </van-submit-bar>
+</view>
+
+<noItems wx:else></noItems>

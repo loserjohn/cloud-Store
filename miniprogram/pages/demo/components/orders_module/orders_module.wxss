@@ -1,0 +1,27 @@
+/* pages/components/orders_module.wxss */
+@import '../../../../app.wxss';
+.cm_order_logo{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  /* overflow: hidden */
+}
+.cm_order_hea_l{
+  width: 64%
+}
+.cm_order_fooder{
+  border-bottom: 1rpx dotted #eee;
+  padding: 20rpx 0;
+}
+.cm_order_h3{
+  color: #404040;
+   font-weight: 600;
+  font-size: 32rpx;
+}
+.cm_order_p{
+  color: #b3b3b3;
+  font-size: 24rpx;
+}
+.active{
+  color: #0079f3
+}
